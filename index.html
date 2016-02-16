@@ -8,15 +8,20 @@
     <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/index.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/jquery.cassette.js"></script>
+    <script src="js/modernizr.custom.69142.js"></script>
 
 <body>
 
+  <!--BLACK SCREEN TO LOGIN-->
+  <div class="row" id="divBlack"></div>
+
   <div class="container">
     <div class="row">
-      <div class="library col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <div class="library col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
         <img src="images/gifcassette1.gif" class="img-responsive" alt="Cassete">
       </div>  
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -24,7 +29,10 @@
       </div> 
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         <img src="images/gifcassette3.gif" class="img-responsive" alt="Cassete">
-      </div> 
+      </div>
+    </div>   
+    <br>    
+    <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         <img src="images/gifcassette4.gif" class="img-responsive" alt="Cassete">
       </div>   
@@ -36,6 +44,19 @@
       </div>  
     </div>
   </div>
+ 
+
+
+
+<!-- Cassette --> 
+ <div id="divCassette"  class="container col-xs-12 col-sm-4 col-md-8 col-lg-6 col-lg-offset-3">
+  <img src="images/cs_back.png" class="img-responsive" alt="cassette">
+  <ul class="vc-controls">
+    <li><img id="play" src="images/metal.jpg" class="img-responsive" alt="cassette"></li>
+    <li><img id="pause" src="images/metal.jpg" class="img-responsive" alt="cassette"></li>
+  </ul>
+</div>
+<!-- /.cassette -->
 
 </body>
 

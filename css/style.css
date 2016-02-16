@@ -19,6 +19,10 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
+video{
+  background-color: white;
+}
+
 html {
   line-height: 1;
 }
@@ -117,7 +121,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 body {
-  background: #FFF;
+  background: #efd1b7;
   color: #363844;
   padding: 40px 0;
   font-family: 'Lato', sans-serif;
@@ -192,8 +196,8 @@ body {
   -moz-border-radius: 16px;
   -webkit-border-radius: 16px;
   border-radius: 16px;
-  width: 534px;
-  height: 335px;
+  width: 834px;
+  height: 500px;
 }
 .cassette:before {
   position: absolute;
@@ -218,12 +222,12 @@ body {
   border-bottom: transparent solid 10px;
 }
 
-.outer-sticker {
+.centro_video {
   background: #8b392e;
   width: 474px;
-  height: 210px;
+  height: 310px;
   position: relative;
-  left: 50%;
+  left: 33%;
   margin-left: -237px;
   -moz-border-radius: 16px;
   -webkit-border-radius: 16px;
@@ -524,6 +528,87 @@ body {
 .credits p a:active {
   color: #8b392e;
 }
+
+
+Text
+
+grey
+ 
+classname: myButton
+ 
+Font Size: 
+18px
+  bold   italic
+Size
+Vertical Size: 
+10px
+Horizontal Size: 
+33px
+Border
+Border Radius: 
+7px
+Border Size: 
+1px
+  Box Shadow   /   inset
+Vertical Position: 
+1px
+Horizontal Position: 
+0px
+Blur Radius: 
+0px
+Spread Radius: 
+0px
+  Text Shadow
+Vertical Position: 
+1px
+Horizontal Position: 
+0px
+Blur Radius: 
+0px
+ 
+
+.myButton {
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+  background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+  background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+  background-color:#ededed;
+  -moz-border-radius:7px;
+  -webkit-border-radius:7px;
+  border-radius:7px;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  cursor:pointer;
+  color:#777777;
+  font-family:Arial;
+  font-size:18px;
+  font-weight:bold;
+  padding:10px 33px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+  background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+  background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+  background-color:#dfdfdf;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
+
+
 
 @-moz-keyframes spin {
   0% {
