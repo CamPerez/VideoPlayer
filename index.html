@@ -1,60 +1,134 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <title>Concert VideoPlayer</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/index.js"></script>
+    <!--Librerías de estilo CSS-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+     <link rel="stylesheet" type="text/css" href="css/index.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="css/controls.css">
+    <link rel="stylesheet" type="text/css" href="css/tittle.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="css/cassetteplayer.css" media="screen"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   
+    <!--
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>-->
+
+    <!--Javascripts JS-->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.cassette.js"></script>
-    <script src="js/modernizr.custom.69142.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/indexvideo.js"></script>
+    <script src="js/cassetteplayer.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery-ui-1.8.21.custom.min.js"></script>
+    <script src="http://gerardcuadras.com/wp-content/themes/GC2016/js/lib/jquery.vide.js"></script>
 
+</head>
 <body>
+  <!--BLACK SCREEN-->
+    <!--SECCIONES DE LA WEB-->
+    
+      <!--Video de cabecera-->
+      <div id="videoheader"></div>        
 
-  <!--BLACK SCREEN TO LOGIN-->
-  <div class="row" id="divBlack"></div>
+      <!--Título página web-->
+      <section class="fullwidth tittle">     
+          <div class="grid__item color-1 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-lg-offset-2">
+            <a href="index.html" class="link link--kukuri" href="#" data-letters="Cassette Player">Cassette Player</a>
+          </div>
+      </section>
 
-  <div class="container">
-    <div class="row">
-      <div class="library col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
-        <img src="images/gifcassette1.gif" class="img-responsive" alt="Cassete">
-      </div>  
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img src="images/gifcassette2.gif" class="img-responsive" alt="Cassete">
-      </div> 
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img src="images/gifcassette3.gif" class="img-responsive" alt="Cassete">
-      </div>
-    </div>   
-    <br>    
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img src="images/gifcassette4.gif" class="img-responsive" alt="Cassete">
-      </div>   
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img src="images/gifcassette5.gif" class="img-responsive" alt="Cassete">
-      </div>   
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img src="images/gifcassette6.gif" class="img-responsive" alt="Cassete">
-      </div>  
-    </div>
-  </div>
+      <!--Librería cassettes-->
+      <section class="fullwidth lib_cassettes">
+        <h2 class="sectiontitle">VIDEO<i class="thin">CONCERTS</i></h2>
+        <br><br>
+        <div class="container">
+          <div class="row">
+            <div class="library col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
+              <a class="mostrarmodal"> <img src="images/gifcassette.gif" class="img-responsive" alt="Cassete"></a>
+            </div>  
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <img src="images/gifcassette2.gif" class="img-responsive" alt="Cassete">
+            </div> 
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <img src="images/gifcassette3.gif" class="img-responsive" alt="Cassete">
+            </div>
+          </div>   
+          <br>    
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <img src="images/gifcassette4.gif" class="img-responsive" alt="Cassete">
+            </div>   
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <img src="images/gifcassette5.gif" class="img-responsive" alt="Cassete">
+            </div>   
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <img src="images/gifcassette6.gif" class="img-responsive" alt="Cassete">
+            </div>  
+          </div>
+        </div>
+      </section>          
+
+      <!--Explicación web-->
+      <section class="fullwidth whymusic">
+        <h2 class="sectiontitle">WHY<i class="thin">MUSIC</i></h2>
+      </section>    
+
+
+
+  
+ 
+ 
  
 
 
 
-<!-- Cassette --> 
- <div id="divCassette"  class="container col-xs-12 col-sm-4 col-md-8 col-lg-6 col-lg-offset-3">
+<!-- Cassette player 
+<div id="divCassette"  class="container col-xs-12 col-sm-4 col-md-8 col-lg-6 col-lg-offset-3">
   <img src="images/cs_back.png" class="img-responsive" alt="cassette">
   <ul class="vc-controls">
     <li><img id="play" src="images/metal.jpg" class="img-responsive" alt="cassette"></li>
     <li><img id="pause" src="images/metal.jpg" class="img-responsive" alt="cassette"></li>
   </ul>
+</div>
+cassette -->
+<!--
+  <div class="cajaexterna">
+    <div class="cajainterna animated">
+      <div class="cajacentrada">
+        <img src="images/cs_back.png" class="img-responsive" alt="cassette">
+          <a href="#" class="cerrarmodal" style="color: red; text-align: right">Cerrar</a>
+      </div>
+    </div>
+  </div></a> -->
+
+  <!-- Cassette --> 
+<div class="row" id="divBlack"></div>
+
+ <div id="divCassette" class="container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+  <img src="images/cs_back.png" class="img-responsive" alt="cassette">
+ <!--  <div class="container">  -->
+    <ul class="vc-controls list-group" >
+      <li class="list-group-item" id="play">Play <i class="fa fa-play"></i></li>
+      <li class="list-group-item" id="pause">Pause <i class="fa fa-pause"></i></li>
+      <li class="list-group-item" id="stop">Stop <i class="fa fa-stop"></i></li>
+      <li class="list-group-item" id="rew">Rew <i class="fa fa-backward"></i></li>
+      <li class="list-group-item" id="ff">FF <i class="fa fa-forward"></i></li>
+      <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
+      <li class="list-group-item" id="volumn">      
+        <section class="section-controls"> 
+          <span class="tooltip"></span> 
+          <div id="slider"></div>
+          <span class="volume"></span>
+        </section>
+      </li>
+    </ul>
+ <!--  </div> -->
 </div>
 <!-- /.cassette -->
 

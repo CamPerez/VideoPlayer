@@ -1,0 +1,181 @@
+/********************************/
+/*POP UP*/
+/********************************/
+
+#divBlack {
+    position: fixed;
+    top: 0px; 
+    height:100vh; 
+    width: 100vw; 
+    background-color: black;
+    opacity: 0.75; 
+    filter: alpha(opacity=40); 
+    visibility: hidden;
+    z-index: 1;
+}
+
+#divCassette{
+    position: fixed;
+    top: 10px; 
+    visibility: hidden;
+    z-index: 2;
+    background-color: transparent;
+}
+
+/********************************/
+/*CONTROLS*/
+/********************************/
+/*#play{
+    position: fixed;
+    top: 350px; 
+    height: 50px;
+    width: 100px;
+    z-index: 3;
+    background-color: transparent;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cajaexterna {
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    display: none;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+}
+.cajainterna {
+    background: transparent;
+    margin: 6em auto 0;
+    position: relative;
+    width: 55%;
+    border-radius: 5px;
+}
+.cajacentrada {
+    margin: 0 auto;
+    text-align: right;
+    padding: 1em;
+
+}
+.cajacentrada h2 {
+    color: white;
+    font-size: 20px;
+    left: 0;
+    margin: 0;
+    padding: 8px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    border-radius: 4px;
+}
+.cajacentrada p {
+    margin-top: 30px;
+}
+.cerrar {
+    position: absolute;
+    right: 16px;
+    top: 13px;
+}
+table, th, td {
+    border: none;
+   
+}
+th, td {
+    padding: 7px;
+    vertical-align: top;
+     text-align: left;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+
+
+
+/* Animaciones */
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.bounceIn {
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn;
+    -webkit-animation-duration: .75s;
+    animation-duration: .75s;
+}
+.element.bounceIn {    
+    -webkit-animation: bounceIn .7s 1;
+    -moz-animation: bounceIn .7s 1;
+    -o-animation: bounceIn .7s 1;
+    animation: bounceIn .7s 1;
+}
