@@ -8,8 +8,8 @@
     height:100vh; 
     width: 100vw; 
     background-color: black;
-    opacity: 0.75; 
-    filter: alpha(opacity=40); 
+    opacity: 0.4; 
+    filter: alpha(opacity=40);
     visibility: hidden;
     z-index: 1;
 }
@@ -25,15 +25,7 @@
 /********************************/
 /*CONTROLS*/
 /********************************/
-/*#play{
-    position: fixed;
-    top: 350px; 
-    height: 50px;
-    width: 100px;
-    z-index: 3;
-    background-color: transparent;
-}
-*/
+
 
 
 

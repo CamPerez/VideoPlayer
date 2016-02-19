@@ -35,6 +35,7 @@ ul.vc-controls{
 ul.vc-controls li {
     display: block;
     float: left;
+    font-size: 20px;
     /*width: 85px;*/
     height: 50px;
     line-height: 55px;

@@ -1,3 +1,4 @@
+
 $(document).ready(function () { 
 	$('#play').click(function(){ 
       $("#play").addClass("vc-control-active");
@@ -18,6 +19,30 @@ $(document).ready(function () {
       },80);                
       $("#play").removeClass("vc-control-active");
       $("#pause").removeClass("vc-control-active");
+  });
+
+  $('#light').click(function(){
+      $("#light").addClass("vc-control-pressed");     
+      //When pass 0.8 sec change image (class)
+      setTimeout(function() {
+            $("#light").removeClass("vc-control-pressed");
+      },80);                
+  });
+
+  $('#cc').click(function(){
+      $("#cc").addClass("vc-control-pressed");     
+      //When pass 0.8 sec change image (class)
+      setTimeout(function() {
+            $("#cc").removeClass("vc-control-pressed");
+      },80);                
+  });
+
+  $('#fullscreen').click(function(){
+      $("#fullscreen").addClass("vc-control-pressed");     
+      //When pass 0.8 sec change image (class)
+      setTimeout(function() {
+            $("#fullscreen").removeClass("vc-control-pressed");
+      },80);                
   });
 });
 
@@ -97,6 +122,42 @@ $(document).ready(function () {
       $('#stop').click(function() {
           audioElement.play();
       });
+
+      $('#light').click(function() {
+          audioElement.play();
+      });
+
+      $('#cc').click(function() {
+          audioElement.play();
+      });
+
+      $('#fullscreen').click(function() {
+          audioElement.play();
+      });
+  });
+
+  /*LIGHT*/
+
+  $(document).ready(function() {
+    $('#light').click(function() {  
+      if ($('#divBlack').css("opacity") == 0.40) {
+        $('#divBlack').css("opacity", 0.75);
+        $("#ilight").removeClass("fa fa-star-o");
+        $("#ilight").addClass("fa fa-star-half-o");      
+      }else{
+        if ($('#divBlack').css("opacity") == 0.75) {
+          $('#divBlack').css("opacity", 0.90);
+          $("#ilight").removeClass("fa fa-star-half-o");
+          $("#ilight").addClass("fa fa-star");     
+        }else{             
+          if ($('#divBlack').css("opacity") == 0.90) {
+            $('#divBlack').css("opacity", 0.40);
+          $("#ilight").removeClass("fa fa-star");
+          $("#ilight").addClass("fa fa-star-o");     
+          } 
+        }
+      };
+    });
   });
 
 
