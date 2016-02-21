@@ -158,10 +158,8 @@ h2 {
 
 
 /* títulos cassettes */
-
-nav a {
+.tittle_cassettes {
 	position: relative;
-	right: 20%;
 	display: inline-block;
 	margin: 15px 25px;
 	outline: none;
@@ -174,17 +172,25 @@ nav a {
 	font-size: 1.35em;
 }
 
-nav a:hover,
-nav a:focus {
+.tittle_cassettes:hover,
+.tittle_cassettes:focus {
 	outline: none;
 }
 
-/* Effect 1: Brackets */
+#t_queen{
+	left: 13%;
+}
+
+#t_muse{
+	left: 23%;
+}
 
 /* Effect 9: second text and borders */
 .cl-effect-9 a {
 	margin: 0 20px;
 	padding: 18px 20px;
+	text-decoration: none;
+	text-align: center;
 }
 
 .cl-effect-9 a::before,
@@ -216,18 +222,20 @@ nav a:focus {
 .cl-effect-9 a span:first-child {
 	z-index: 2;
 	display: block;
-	font-weight: 300;
+	font-weight: 400;
+	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	color: red;
 }
 
 .cl-effect-9 a span:last-child {
 	z-index: 1;
 	display: block;
 	padding: 8px 0 0 0;
-	color: rgba(0,0,0,0.4);
+	color: grey;
 	text-shadow: none;
 	text-transform: none;
 	font-style: italic;
-	font-size: 0.75em;
+	font-size: 1em;
 	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 	opacity: 0;
 	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
