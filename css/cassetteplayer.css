@@ -15,11 +15,22 @@
 }
 
 #divCassette{
-    position: fixed;
-    top: 10px; 
+    position: relative;
     visibility: hidden;
     z-index: 2;
     background-color: transparent;
+}
+
+#divInfoRight{
+    position: relative;
+    height: 400px;
+    visibility: hidden;
+    z-index: 2;
+    background-color: white;
+}
+
+#divGroup{
+    margin-top: -80%;
 }
 
 /********************************/

@@ -1,20 +1,22 @@
 /* General link styles */
 .link {
-	text-align: center;
-	left: 15%;
+	/*text-align: center;*/
+	/*left: 15%;*/
 	outline: none;
 	text-decoration: none;
 	position: relative;
 	font-size: 6em;
 	line-height: 1;
 	color: #9e9ba4;
-	display: inline-block;
+	height: 100px;
+	/*display: inline-block;*/
+	top: 20px;
 }
 
 /* Kukuri */
 .link--kukuri {
-	text-transform: uppercase;
-	font-weight: 900;
+	/*text-transform: uppercase;*/
+	/*font-weight: 900;*/
 	overflow: hidden;
 	line-height: 0.75;
 	color: #F57F17;
