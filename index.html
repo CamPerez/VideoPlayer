@@ -43,7 +43,6 @@
         <h1 class="sectiontitle link link--kukuri">Cassette Player</i></h1>
       </div>
     </section>
-
       <!--Librería cassettes-->
       <section class="fullwidth lib_cassettes">
         <h2 class="sectiontitle">VIDEO<i class="thin">CONCERTS</i></h2>
@@ -90,82 +89,79 @@
               </nav>
             </div>  
           </div>
+        </div>   
+        <br>    
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <img src="images/gifcassette4.gif" class="img-responsive" alt="Cassete">
+            <nav class="cl-effect-9 tittle_cassettes" id="t_katy">
+              <a href="#"><span>Katy Perry</span><span>The Prismatic World Tour 2015</span></a>
+            </nav>
+          </div>   
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <img src="images/gifcassette5.gif" class="img-responsive" alt="Cassete">
+            <nav class="cl-effect-9 tittle_cassettes" id="t_shakira">
+              <a href="#"><span>Shakira</span><span>FIFA World Cup 2010</span></a>
+            </nav>
+          </div>   
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <img src="images/gifcassette6.gif" class="img-responsive" alt="Cassete">
+            <nav class="cl-effect-9 tittle_cassettes" id="t_rolling">
+              <a href="#"><span>The Rolling Stones</span><span>Hyde Park 2013</span></a>
+            </nav>
+          </div>  
         </div>
-      </section>              
+      </div>
+    </section>              
 
     <!--Explicación web-->
     <section class="fullwidth whymusic">
       <h2 class="sectiontitle">WHY<i class="thin">MUSIC</i></h2>
     </section>    
 
-
-
-
-
-
-
-
-
-
-<!-- Cassette player 
-<div id="divCassette"  class="container col-xs-12 col-sm-4 col-md-8 col-lg-6 col-lg-offset-3">
-  <img src="images/cs_back.png" class="img-responsive" alt="cassette">
-  <ul class="vc-controls">
-    <li><img id="play" src="images/metal.jpg" class="img-responsive" alt="cassette"></li>
-    <li><img id="pause" src="images/metal.jpg" class="img-responsive" alt="cassette"></li>
-  </ul>
-</div>
-cassette -->
-<!--
-  <div class="cajaexterna">
-    <div class="cajainterna animated">
-      <div class="cajacentrada">
-        <img src="images/cs_back.png" class="img-responsive" alt="cassette">
-          <a href="#" class="cerrarmodal" style="color: red; text-align: right">Cerrar</a>
-      </div>
-    </div>
-  </div></a> -->
-
-  <!-- Cassette --> 
-  <div class="row" id="divBlack"></div>
-
-
-  <div id="divGroup" class="container">
-    <div id="divCassette"  class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
-      <img src="images/cs_back.png" class="img-responsive" alt="cassette">
-      <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-        <div id="progressBar" class="progress" onclick="progressBar()">
-          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-          </div>
+    <!-- Cassette --> 
+    <div class="row" id="divBlack"></div>
+      <div id="divGroup" class="container">
+        <div id="divCassette" class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
+          <div class="container" id="divVideoPlayer">
+            <video autoplay id="myVideo" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+            <source src="video/queen.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="container col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+              <div id="progressBar" class="progress" onclick="progressBar()">
+                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                </div>
+              </div>
+            </div>
         </div>
+        <!-- /.cassette -->
+
+          <div id="myVideoControls" class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 col-lg-offset-2">
+            <ul class="vc-controls list-group" >
+              <li class="list-group-item" id="play"><i class="fa fa-play"></i></li>
+              <li class="list-group-item" id="pause"><i class="fa fa-pause"></i></li>
+              <li class="list-group-item" id="stop"><i class="fa fa-stop"></i></li>
+              <li class="list-group-item" id="light">Light <i id="ilight" class="fa fa-star-o"></i></li>
+              <li class="list-group-item" id="cc"><i class="fa fa-cc"></i></li>
+              <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
+              <li class="list-group-item" id="volumn">      
+                <section class="section-controls"> 
+                  <span class="tooltip"></span> 
+                  <div id="slider"></div>
+                  <span class="volume"></span>
+                </section>
+              </li>
+            </ul>      
+          </div>
+
+          </div>
+
+        <div id="divInfoRight" class="container col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        </div>
+
+
       </div>
+    </body>
 
-      <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 col-lg-offset-2">
-        <ul class="vc-controls list-group" >
-          <li class="list-group-item" id="play"><i class="fa fa-play"></i></li>
-          <li class="list-group-item" id="pause"><i class="fa fa-pause"></i></li>
-          <li class="list-group-item" id="stop"><i class="fa fa-stop"></i></li>
-          <li class="list-group-item" id="light">Light <i id="ilight" class="fa fa-star-o"></i></li>
-          <li class="list-group-item" id="cc"><i class="fa fa-cc"></i></li>
-          <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
-          <li class="list-group-item" id="volumn">      
-            <section class="section-controls"> 
-              <span class="tooltip"></span> 
-              <div id="slider"></div>
-              <span class="volume"></span>
-            </section>
-          </li>
-        </ul>      
-      </div>
-
-    </div>
-    <!-- /.cassette -->
-
-    <div id="divInfoRight" class="container col-xs-12 col-sm-12 col-md-12 col-lg-4">
-    </div>
-
-
-  </div>
-</body>
-
-</html>
+    </html>
