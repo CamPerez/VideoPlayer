@@ -22,6 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="js/controls.js"></script>
+    <script src="js/visualcontrols.js"></script>
     <script src="js/indexvideo.js"></script>
     <script src="js/cassetteplayer.js"></script>
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -50,7 +51,7 @@
         <div class="container">
           <div class="row">
             <div class="library col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
-              <img src="images/gifcassette1.gif" class="img-responsive" alt="Cassete">
+              <img src="images/gifcassette1.gif" onclick="initVideoPlayer()" class="img-responsive" alt="Cassete">
               <nav class="cl-effect-9 tittle_cassettes" id="t_queen">
                 <a href="#"><span>Queen + Adam Lambert</span><span>iHeartRadio Music Festival 2013</span></a>
               </nav>   
@@ -130,7 +131,7 @@ cassette -->
 
 
   <div id="divGroup" class="container">
-    <div id="divCassette" class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
+    <div id="divCassette"  class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
       <img src="images/cs_back.png" class="img-responsive" alt="cassette">
       <div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
         <div id="progressBar" class="progress" onclick="progressBar()">
