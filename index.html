@@ -123,7 +123,7 @@
               <li class="list-group-item" id="light">Light <i id="ilight" class="fa fa-star-o"></i></li>
               <li class="list-group-item" id="cc"><i class="fa fa-cc"></i></li>
               <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
-              <li class="list-group-item" id="volumn">      
+              <li class="list-group-item" id="volumn" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)">      
                 <section class="section-controls"> 
                   <span class="tooltip"></span> 
                   <div id="slider"></div>
