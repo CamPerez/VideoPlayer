@@ -23,7 +23,7 @@
 
 #divInfoRight{
     position: relative;
-    height: 400px;
+   /* height: 400px;*/
     visibility: hidden;
     z-index: 2;
     background-color: white;
@@ -57,7 +57,13 @@ border: 0px solid #000000;
     /*margin-top: -20px;*/
 
 }
-
+/********************************/
+/*INFO VIDEO*/
+/********************************/
+.imgCover-size{
+    height: 100px;
+    width: 100px;
+}
 /********************************/
 /*CONTROLS*/
 /********************************/

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Prueba VideoPlayer</title>
+
+
+</head>
+<body>
+  <video id="video1" controls>
+    <source src="video/shakira.mp4"  >
+      <track id='track1' label='English captions' src="subtitulos-ingles.vtt" kind='subtitles' srclang='en' default >    
+  </video>
+  <div id="display">
+    <span onclick = "metadata()">CLICK</span>
+  </div>
+
+</body>
+    <script>
+
+    function metadata() {
+      var video = document.getElementById("video1");
+
+      video.textTracks[0].mode = "showing";
+
+      //var textTrack =  video.textTracks[0];
+
+      video.textTracks[0].oncuechange = function (){
+      // "this" is a textTrack
+      var cue = this.activeCues[0]; // assuming there is only one active cue
+      var obj = JSON.parse(cue.text);
+      
+      alert(video.textTracks[0].kind);
+      // do something
+      }
+    }
+  </script>
+
+</html>
+
+
