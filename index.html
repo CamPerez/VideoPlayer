@@ -5,12 +5,12 @@
   <title>Concert VideoPlayer</title>
 
   <!--Librerías de estilo CSS-->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/> 
   <link rel="stylesheet" type="text/css" href="css/index.css" media="screen"/>
-  <link rel="stylesheet" type="text/css" href="css/controls.css">
+  <link rel="stylesheet" type="text/css" href="css/controls.css"/>
   <link rel="stylesheet" type="text/css" href="css/tittle.css" media="screen"/>
   <link rel="stylesheet" type="text/css" href="css/cassetteplayer.css" media="screen"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 
     <!--
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
@@ -28,118 +28,129 @@
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="js/jquery-ui-1.8.21.custom.min.js"></script>
     <script src="http://gerardcuadras.com/wp-content/themes/GC2016/js/lib/jquery.vide.js"></script>
+    <script src="js/textTrack.js"></script>
 
-  </head>
-  <body>
-    <!--BLACK SCREEN-->
-    <!--SECCIONES DE LA WEB-->
-    
-    <!--Video de cabecera-->
-    <div id="videoheader"></div>        
+</head>
+<body>
+  <!--BLACK SCREEN-->
+  <!--SECCIONES DE LA WEB-->
 
-    <!--Título página web -->
-    <section class="tittle">   
-      <div class="panel-body">
-        <h1 class="sectiontitle link link--kukuri">Cassette Player</i></h1>
-      </div>
-    </section>
-      <!--Librería cassettes-->
-      <section class="fullwidth lib_cassettes">
-        <h2 class="sectiontitle">VIDEO<i class="thin">CONCERTS</i></h2>
-        <br><br>
-        <div class="container">
-          <div class="row">
-            <div class="library col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
-              <img src="images/gifcassette1.gif" onclick="initVideoPlayer()" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_queen">
-                <a href="#"><span>Queen + Adam Lambert</span><span>iHeartRadio Music Festival 2013</span></a>
-              </nav>   
-            </div>  
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <img src="images/gifcassette2.gif" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_muse">
-                <a href="#"><span>Muse</span><span>Rome Olympic Stadium 2013</span></a>
-              </nav>
-            </div> 
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <img src="images/gifcassette3.gif" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_coldplay">
-                <a href="#"><span>Coldplay</span><span>Rock in Rio 2011</span></a>
-              </nav>
-            </div>
-          </div>   
-          <br>    
-          <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <img src="images/gifcassette4.gif" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_katy">
-                <a href="#"><span>Katy Perry</span><span>The Prismatic World Tour 2015</span></a>
-              </nav>
-            </div>   
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <img src="images/gifcassette5.gif" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_shakira">
-                <a href="#"><span>Shakira</span><span>FIFA World Cup 2010</span></a>
-              </nav>
-            </div>   
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <img src="images/gifcassette6.gif" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_rolling">
-                <a href="#"><span>The Rolling Stones</span><span>Hyde Park 2013</span></a>
-              </nav>
-            </div>  
+  <!--Video de cabecera-->
+  <div id="videoheader"></div>        
+
+  <!--Título página web -->
+  <section class="tittle">   
+    <div class="panel-body">
+      <h1 class="sectiontitle link link--kukuri">Cassette Player</h1>
+    </div>
+  </section>
+    <!--Librería cassettes-->
+    <section class="fullwidth lib_cassettes">
+      <h2 class="sectiontitle">VIDEO<i class="thin">CONCERTS</i></h2>
+      <br><br>
+      <div class="container">
+        <div class="row">
+          <div class="library col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
+            <img src="images/gifcassette1.gif" onclick="initVideoPlayer()" class="img-responsive" alt="Cassete"/>
+            <nav class="cl-effect-9 tittle_cassettes" id="t_queen">
+              <a href="#"><span>Queen + Adam Lambert</span><span>iHeartRadio Music Festival 2013</span></a>
+            </nav>   
+          </div>  
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <img src="images/gifcassette2.gif" class="img-responsive" alt="Cassete"/>
+            <nav class="cl-effect-9 tittle_cassettes" id="t_muse">
+              <a href="#"><span>Muse</span><span>Rome Olympic Stadium 2013</span></a>
+            </nav>
+          </div> 
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <img src="images/gifcassette3.gif" class="img-responsive" alt="Cassete"/>
+            <nav class="cl-effect-9 tittle_cassettes" id="t_coldplay">
+              <a href="#"><span>Coldplay</span><span>Rock in Rio 2011</span></a>
+            </nav>
           </div>
         </div>   
-    </section>              
+        <br>    
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <img src="images/gifcassette4.gif" class="img-responsive" alt="Cassete"/>
+            <nav class="cl-effect-9 tittle_cassettes" id="t_katy">
+              <a href="#"><span>Katy Perry</span><span>The Prismatic World Tour 2015</span></a>
+            </nav>
+          </div>   
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <img src="images/gifcassette5.gif" class="img-responsive" alt="Cassete"/>
+            <nav class="cl-effect-9 tittle_cassettes" id="t_shakira">
+              <a href="#"><span>Shakira</span><span>FIFA World Cup 2010</span></a>
+            </nav>
+          </div>   
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <img src="images/gifcassette6.gif" class="img-responsive" alt="Cassete"/>
+            <nav class="cl-effect-9 tittle_cassettes" id="t_rolling">
+              <a href="#"><span>The Rolling Stones</span><span>Hyde Park 2013</span></a>
+            </nav>
+          </div>  
+        </div>
+      </div>   
+  </section>              
 
-    <!--Explicación web-->
-    <section class="fullwidth whymusic">
-      <h2 class="sectiontitle">WHY<i class="thin">MUSIC</i></h2>
-    </section>    
+  <!--Explicación web-->
+  <section class="fullwidth whymusic">
+    <h2 class="sectiontitle">WHY<i class="thin">MUSIC</i></h2>
+  </section>    
 
-    <!-- Cassette --> 
-    <div class="row" id="divBlack"></div>
-      <div id="divGroup" class="container">
-        <div id="divCassette" class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
-          <div class="container" id="divVideoPlayer">
-            <video id="myVideo" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-            <source src="video/prueba.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-            </video>
-            <div class="container col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-              <div id="progressBar" class="progress" onclick="progressBar()">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                </div>
-              </div>
+  <!-- Cassette --> 
+  <div class="row" id="divBlack"></div>
+  <div id="divGroup" class="container">
+    <div id="divCassette" class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
+      <div class="container" id="divVideoPlayer">
+        <video id="myVideo" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+          <source src="video/shakira.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          <!-- The metadata track -->
+          <track onCueChange="metadata()" kind="metadata" type="text/webvtt" label="infoShakira" src="textTrack/shakira.vtt" srclang="en" default></track>
+        </video>
+        <div class="container col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+          <div id="progressBar" class="progress" onclick="progressBar()">
+            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
             </div>
-        </div>
-        <!-- /.cassette -->
-
-          <div id="myVideoControls" class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 col-lg-offset-2">
-            <ul class="vc-controls list-group" >
-              <li class="list-group-item" id="play"><i class="fa fa-play"></i></li>
-              <li class="list-group-item" id="pause"><i class="fa fa-pause"></i></li>
-              <li class="list-group-item" id="stop"><i class="fa fa-stop"></i></li>
-              <li class="list-group-item" id="light">Light <i id="ilight" class="fa fa-star-o"></i></li>
-              <li class="list-group-item" id="cc"><i class="fa fa-cc"></i></li>
-              <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
-              <li class="list-group-item" id="volumn">      
-                <section class="section-controls"> 
-                  <span class="tooltip"></span> 
-                  <div id="slider"></div>
-                  <span class="volume"></span>
-                </section>
-              </li>
-            </ul>      
           </div>
-
-          </div>
-
-        <div id="divInfoRight" class="container col-xs-12 col-sm-12 col-md-12 col-lg-4">
         </div>
+    </div>
+    <!-- /.cassette -->
 
+      <div id="myVideoControls" class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 col-lg-offset-2">
+        <ul class="vc-controls list-group" >
+          <li class="list-group-item" id="play" onclick="metadata()"><i class="fa fa-play"></i></li>
+          <li class="list-group-item" id="pause"><i class="fa fa-pause"></i></li>
+          <li class="list-group-item" id="stop"><i class="fa fa-stop"></i></li>
+          <li class="list-group-item" id="light">Light <i id="ilight" class="fa fa-star-o"></i></li>
+          <li class="list-group-item" id="cc"><i class="fa fa-cc"></i></li>
+          <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
+          <li class="list-group-item" id="volumn"> 
+            <section class="section-controls"> 
+              <span class="tooltip"></span> 
+              <div id="slider"></div>
+              <span class="volume"></span>
+            </section>
+          </li>
+        </ul>      
+      </div>
 
       </div>
-    </body>
 
-    </html>
+    <div id="divInfoRight" class="container col-xs-12 col-sm-12 col-md-12 col-lg-4">
+      <h4 id="infoSrc"></h4>
+      <h4 id="infoTitle"></h4>
+      <h4 id="infoAlbum"></h4>
+      <h4 id="infoPublication"></h4>
+      <h4 id="infoRecord"></h4>
+      <h4 id="infoGenre"></h4>
+      <h4 id="infoLabel"></h4>
+      <h4 id="infoAuthors"></h4>
+      <h4 id="infoProducers"></h4>
+      <h4 id="infoWiki"></h4>
+    </div>
+  </div>
+</body>
+
+</html>
