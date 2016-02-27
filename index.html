@@ -28,6 +28,7 @@
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="js/jquery-ui-1.8.21.custom.min.js"></script>
     <script src="http://gerardcuadras.com/wp-content/themes/GC2016/js/lib/jquery.vide.js"></script>
+    <script src="js/textTrack.js"></script>
 
   </head>
   <body>
@@ -103,8 +104,10 @@
         <div id="divCassette" class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
           <div class="container" id="divVideoPlayer">
             <video id="myVideo" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-            <source src="video/prueba.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
+              <source src="video/shakira.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              <!-- The metadata track -->
+              <track onCueChange="metadata()" kind="metadata" type="text/webvtt" label="infoShakira" src="textTrack/shakira.vtt" srclang="en" default></track>
             </video>
             <div class="container col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
               <div id="progressBar" class="progress" onclick="progressBar()">
@@ -115,31 +118,39 @@
         </div>
         <!-- /.cassette -->
 
-          <div id="myVideoControls" class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 col-lg-offset-2">
-            <ul class="vc-controls list-group" >
-              <li class="list-group-item" id="play"><i class="fa fa-play"></i></li>
-              <li class="list-group-item" id="pause"><i class="fa fa-pause"></i></li>
-              <li class="list-group-item" id="stop"><i class="fa fa-stop"></i></li>
-              <li class="list-group-item" id="light">Light <i id="ilight" class="fa fa-star-o"></i></li>
-              <li class="list-group-item" id="cc"><i class="fa fa-cc"></i></li>
-              <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
-              <li class="list-group-item" id="volumn" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)">      
-                <section class="section-controls"> 
-                  <span class="tooltip"></span> 
-                  <div id="slider"></div>
-                  <span class="volume"></span>
-                </section>
-              </li>
-            </ul>      
-          </div>
-
-          </div>
-
-        <div id="divInfoRight" class="container col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <div id="myVideoControls" class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 col-lg-offset-2">
+          <ul class="vc-controls list-group" >
+            <li class="list-group-item" id="play"><i class="fa fa-play"></i></li>
+            <li class="list-group-item" id="pause"><i class="fa fa-pause"></i></li>
+            <li class="list-group-item" id="stop"><i class="fa fa-stop"></i></li>
+            <li class="list-group-item" id="light">Light <i id="ilight" class="fa fa-star-o"></i></li>
+            <li class="list-group-item" id="cc"><i class="fa fa-cc"></i></li>
+            <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
+            <li class="list-group-item" id="volumn" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)">      
+              <section class="section-controls"> 
+                <span class="tooltip"></span> 
+                <div id="slider"></div>
+                <span class="volume"></span>
+              </section>
+            </li>
+          </ul>      
         </div>
 
-
       </div>
-    </body>
 
-    </html>
+    <div id="divInfoRight" class="container col-xs-12 col-sm-12 col-md-12 col-lg-4">
+      <h4 id="infoSrc"></h4>
+      <h4 id="infoTitle"></h4>
+      <h4 id="infoAlbum"></h4>
+      <h4 id="infoPublication"></h4>
+      <h4 id="infoRecord"></h4>
+      <h4 id="infoGenre"></h4>
+      <h4 id="infoLabel"></h4>
+      <h4 id="infoAuthors"></h4>
+      <h4 id="infoProducers"></h4>
+      <h4 id="infoWiki"></h4>
+    </div>
+  </div>
+</body>
+
+</html>
