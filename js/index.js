@@ -1,4 +1,15 @@
-/* 
-   Inspired by "Press Play" dribble shot by Sean Vickery:
-   https://dribbble.com/shots/1651416-Press-Play
-*/
+jQuery(document).ready(function($) {
+			jQuery('#videoheader').vide({
+				mp4: "video/background.mp4",
+				webm: "",
+				poster: "images/concertbackground.jpg"
+			}, {
+					muted: true,
+					loop: true,
+					autoplay: true,
+					position: "50% 50%",
+					posterType: "detect",
+					resizing: true,
+					bgColor: 'transparent'
+			});
+		});
