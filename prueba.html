@@ -1,40 +1,42 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <title>Prueba VideoPlayer</title>
+  <title>Concert VideoPlayer</title>
+
+  <!--Librerías de estilo CSS-->
+
+  <link rel="stylesheet" type="text/css" href="css/prueba.css">
+
+  <link rel="stylesheet" type="text/css" href="css/prueba.css" media="screen"/>
+ 
+
+    <!--
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>-->
+
+    <!--Javascripts JS-->
+    <script src="js/prueba.js"></script>
+   
+
+  </head>
+  <body>
+    <!--BLACK SCREEN-->
+    <!--SECCIONES DE LA WEB-->
+   
+            <canvas id="c"></canvas>
+            <video id="v" controls loop>
+            <source src="video/prueba.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+
+            <h1 id="magic">holaaa</h1>
 
 
-</head>
-<body>
-  <video id="video1" controls>
-    <source src="video/shakira.mp4"  >
-      <track id='track1' label='English captions' src="subtitulos-ingles.vtt" kind='subtitles' srclang='en' default >    
-  </video>
-  <div id="display">
-    <span onclick = "metadata()">CLICK</span>
-  </div>
+            <br>
+           <h2 onclick="initVideoPlayer()">iniciar</h2>
+            
+    </body>
 
-</body>
-    <script>
-
-    function metadata() {
-      var video = document.getElementById("video1");
-
-      video.textTracks[0].mode = "showing";
-
-      //var textTrack =  video.textTracks[0];
-
-      video.textTracks[0].oncuechange = function (){
-      // "this" is a textTrack
-      var cue = this.activeCues[0]; // assuming there is only one active cue
-      var obj = JSON.parse(cue.text);
-      
-      alert(video.textTracks[0].kind);
-      // do something
-      }
-    }
-  </script>
-
-</html>
-
-
+    </html>

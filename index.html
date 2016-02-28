@@ -11,6 +11,9 @@
   <link rel="stylesheet" type="text/css" href="css/tittle.css" media="screen"/>
   <link rel="stylesheet" type="text/css" href="css/cassetteplayer.css" media="screen"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="fonts/font-awesome-4.5.0/css/font-awesome.min.css">
+
+  
 
     <!--
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
@@ -22,8 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="js/controls.js"></script>
-    <script src="js/visualcontrols.js"></script>
-    <script src="js/indexvideo.js"></script>
+    <script src="js/index.js"></script>
     <script src="js/cassetteplayer.js"></script>
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="js/jquery-ui-1.8.21.custom.min.js"></script>
@@ -100,57 +102,62 @@
 
     <!-- Cassette --> 
     <div class="row" id="divBlack"></div>
-      <div id="divGroup" class="container">
-        <div id="divCassette" class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
-          <div class="container" id="divVideoPlayer">
-            <video id="myVideo" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-              <source src="video/shakira.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-              <!-- The metadata track -->
-              <track onCueChange="metadata()" kind="metadata" type="text/webvtt" label="infoShakira" src="textTrack/shakira.vtt" srclang="en" default></track>
-            </video>
-            <div class="container col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-              <div id="progressBar" class="progress" onclick="progressBar()">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                </div>
+    <div id="divGroup" class="container">
+      <div id="divCassette" class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
+        <div class="container" id="divVideoPlayer">
+          <video  id="myVideo" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+            <source src="video/background.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            <!-- The metadata track -->
+            <track onCueChange="metadata()" kind="metadata" type="text/webvtt" label="infoShakira" src="textTrack/shakira.vtt" srclang="en" default></track>
+          </video>
+        
+          <canvas id="c" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ></canvas>
+
+          <div class="container col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+            <div id="progressBar" class="progress" onclick="progressBar()">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
               </div>
             </div>
+          </div>
         </div>
-        <!-- /.cassette -->
-
         <div id="myVideoControls" class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 col-lg-offset-2">
           <ul class="vc-controls list-group" >
             <li class="list-group-item" id="play"><i class="fa fa-play"></i></li>
             <li class="list-group-item" id="pause"><i class="fa fa-pause"></i></li>
             <li class="list-group-item" id="stop"><i class="fa fa-stop"></i></li>
-            <li class="list-group-item" id="light">Light <i id="ilight" class="fa fa-star-o"></i></li>
-            <li class="list-group-item" id="cc"><i class="fa fa-cc"></i></li>
-            <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
-            <li class="list-group-item" id="volumn" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)">      
-              <section class="section-controls"> 
-                <span class="tooltip"></span> 
-                <div id="slider"></div>
-                <span class="volume"></span>
-              </section>
+            <li class="list-group-item" id="light">Light <i class="fa fa-star-o"></i></li>
+            <li class="list-group-item" id="screenshot"><i class="fa fa-camera"></i></li> 
+            <li class="list-group-item" id="vol">
+              <div id="slider">
+                <input type="range" min="0" max="100" value="50" id="volumen" class="orange">
+              </div>
             </li>
+            <li class="list-group-item" id="magic"><i class="fa fa-magic"></i></li>
+            <li class="list-group-item" id="magic1"><i class="fa fa-magic"></i></li>
+            <li class="list-group-item" id="magic2"><i class="fa fa-magic"></i></li>
+            <li class="list-group-item" id="magic3"><i class="fa fa-magic"></i></li>
+            <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
           </ul>      
         </div>
-
       </div>
 
-    <div id="divInfoRight" class="container col-xs-12 col-sm-12 col-md-12 col-lg-4">
-      <h4 id="infoSrc"></h4>
-      <h4 id="infoTitle"></h4>
-      <h4 id="infoAlbum"></h4>
-      <h4 id="infoPublication"></h4>
-      <h4 id="infoRecord"></h4>
-      <h4 id="infoGenre"></h4>
-      <h4 id="infoLabel"></h4>
-      <h4 id="infoAuthors"></h4>
-      <h4 id="infoProducers"></h4>
-      <h4 id="infoWiki"></h4>
-    </div>
-  </div>
+      <!-- /.cassette -->
+
+      <div id="divInfoRight" class="container col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <h4 id="infoSrc"></h4>
+        <h4 id="infoTitle"></h4>
+        <h4 id="infoAlbum"></h4>
+        <h4 id="infoPublication"></h4>
+        <h4 id="infoRecord"></h4>
+        <h4 id="infoGenre"></h4>
+        <h4 id="infoLabel"></h4>
+        <h4 id="infoAuthors"></h4>
+        <h4 id="infoProducers"></h4>
+        <h4 id="infoWiki"></h4>
+      </div>
+
+    </div> 
 </body>
 
 </html>
