@@ -11,17 +11,29 @@
  var filter;
  var cw;
  var ch;
+ var scaleFactor;
+ var snapshots;
+ var speed;
+ var videospeed;
+ var num_shot;
+ var play_button;
 
-function initVideoPlayer(){
+
+function initVideoPlayer(nomvideo){
 
   canvas = document.getElementById('c');
   context = canvas.getContext('2d');
-  filter=undefined;
+  filter="normal";
+  speed="normal";
+  num_shot=1;
 
   cw = canvas.clientWidth;
   ch = canvas.clientHeight;
   canvas.width = cw;
   canvas.height = ch;
+
+  scaleFactor = 0.25;
+  snapshots = [];
 
   video= document.getElementById("myVideo"); 
   play= document.getElementById("play"); 
@@ -30,33 +42,54 @@ function initVideoPlayer(){
   fullscreen= document.getElementById("fullscreen");
   vol = document.getElementById("volumen");
   magic= document.getElementById("magic");
-  magic1= document.getElementById("magic1");
-  magic2= document.getElementById("magic2");
-  magic3= document.getElementById("magic3");
   screenshot= document.getElementById("screenshot");
+  videospeed= document.getElementById("videospeed");
+  play_button= document.getElementById("play_button");
 
+  canvas.addEventListener("click", playPauseVideo, false);
+  play_button.addEventListener("click", playPauseVideo, false);
   play.addEventListener("click", playVideo, false);
   pause.addEventListener("click", pauseVideo, false);
   stop.addEventListener("click", stopVideo, false);
   fullscreen.addEventListener("click", fullScreenVideo, false);
   vol.addEventListener("input", changeVolumVideo, false);
-  magic.addEventListener("click", greyFilter, false);
-  magic1.addEventListener("click", tintFilter, false);
-  magic2.addEventListener("click", colorFilter, false);
-  magic3.addEventListener("click", noneFilter, false);
+  magic.addEventListener("click", putFilter, false);
+  screenshot.addEventListener("click",paintFrame,false);
+  videospeed.addEventListener("click",speedVideo,false);
+
+
+  if(nomvideo=="queen"){
+    video.src= "video/shakira.mp4";
+  }else{
+    video.src= "video/background.mp4";
+  }
+  
   
   $(video).on("play", function(){
     draw(video,context,cw,ch,filter);
   });
+
+}
+
+function playPauseVideo(){
+  if (video.paused === false) {
+        video.pause();
+        play_button.style.visibility="visible";
+    } else {
+        video.play();
+        play_button.style.visibility="hidden";
+    }
 }
 
 
 function playVideo() {
  video.play();
+ play_button.style.visibility="hidden";
 }
 
 function pauseVideo() {
  video.pause();
+ play_button.style.visibility="visible";
 }
 
 function stopVideo(){
@@ -78,31 +111,19 @@ function changeVolumVideo(){
  video.volume= (vol.value/100);
 }
 
-
-
  
- /*CANVAS: VIDEO EN BLANCO Y NEGRO*/
+ /*CANVAS: FILTROS DE VÍDEO*/
 
- function greyFilter(){
-  filter="grey";
-  video.pause();
-  setTimeout("$('#play').trigger('click')",20);
- }
-
- function tintFilter(){
-  filter="tint";
-  video.pause();
-  setTimeout("$('#play').trigger('click')",20);
- }
-
- function colorFilter(){
-  filter="color";
-  video.pause();
-  setTimeout("$('#play').trigger('click')",20);
- }
-
- function noneFilter(){
-  filter=undefined;
+  function putFilter(){
+  if(filter=="grey"){
+    filter="tint";
+  }else if(filter=="tint"){
+    filter="color";
+  }else if(filter=="color"){
+    filter="normal";
+  }else if(filter=="normal"){
+    filter="grey";
+  }
   video.pause();
   setTimeout("$('#play').trigger('click')",20);
  }
@@ -162,6 +183,52 @@ function draw(v,c,w,h,filter) {
     setTimeout(draw,20,v,c,w,h,filter);
 
   }
+
+
+/* SALTOS DE TIEMPO */
+
+
+
+
+/* VELOCIDAD VÍDEO */
+
+function speedVideo(){
+
+  if(speed=="normal"){
+      speed="fast";
+      video.playbackRate  = 2.0;
+  }else if(speed=="fast"){
+      speed="slow";
+      video.playbackRate  = 0.5;
+  }else if(speed=="slow"){
+      speed="normal";
+      video.playbackRate  = 1.0;
+  }
+}
+
+
+/* SCREENSHOT */
+
+function paintFrame() {
+  var c;
+  switch(num_shot){
+      case 1:
+        c = document.getElementById("canvas_screenshot1");
+        num_shot=2;
+        break;
+      case 2:
+        c = document.getElementById("canvas_screenshot2");
+        num_shot=3;
+        break;
+      case 3:
+        c = document.getElementById("canvas_screenshot3");
+        num_shot=1;
+        break;
+    }
+  var context1 = c.getContext("2d");
+  context1.drawImage(video, 0, 0, 160, 120);
+}
+
 
 
  /*EFECTO LUZ DE FONDO*/
@@ -229,19 +296,11 @@ $(document).ready(function () {
       },80);                
   });
 
-  $('#magic1').click(function(){
-      $("#magic1").addClass("vc-control-pressed");     
+  $('#videospeed').click(function(){
+      $("#videospeed").addClass("vc-control-pressed");     
       //When pass 0.8 sec change image (class)
       setTimeout(function() {
-            $("#magic1").removeClass("vc-control-pressed");
-      },80);                
-  });
-
-  $('#magic2').click(function(){
-      $("#magic2").addClass("vc-control-pressed");     
-      //When pass 0.8 sec change image (class)
-      setTimeout(function() {
-            $("#magic2").removeClass("vc-control-pressed");
+            $("#videospeed").removeClass("vc-control-pressed");
       },80);                
   });
 
@@ -304,6 +363,10 @@ $(document).ready(function () {
       });
 
       $('#magic').click(function() {
+          audioElement.play();
+      });
+
+      $('#videospeed').click(function() {
           audioElement.play();
       });
 

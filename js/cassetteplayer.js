@@ -7,6 +7,8 @@ $(document).ready(function () {
           $('#divCassette').css('visibility', 'hidden');
           $('#divBlack').css('visibility', 'hidden');
           $('#divInfoRight').css('visibility', 'hidden');
+          $('#divScreenshot').css('visibility', 'hidden');
+          $('#play_button').css('visibility', 'hidden');
       });
   });
 });
@@ -18,6 +20,8 @@ function blackFunction() {
     document.getElementById("divCassette").style.visibility="visible";
     document.getElementById("divInfoRight").style.visibility="visible";
     document.getElementById("divBlack").style.visibility="visible";
+    document.getElementById("divScreenshot").style.visibility="visible";
+    document.getElementById("play_button").style.visibility="visible";
     //scroll the document to top    
     window.scrollTo(0, 0);
 }
