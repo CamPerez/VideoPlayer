@@ -1,24 +1,17 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <title>Concert VideoPlayer</title>
+  <head>
+    <title>Concert VideoPlayer</title>
 
-  <!--Librerías de estilo CSS-->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
-  <link rel="stylesheet" type="text/css" href="css/index.css" media="screen"/>
-  <link rel="stylesheet" type="text/css" href="css/controls.css">
-  <link rel="stylesheet" type="text/css" href="css/tittle.css" media="screen"/>
-  <link rel="stylesheet" type="text/css" href="css/cassetteplayer.css" media="screen"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="fonts/font-awesome-4.5.0/css/font-awesome.min.css">
-
-  
-
-    <!--
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+    <!--Librerías de estilo CSS-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/css" href="css/index.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="css/controls.css">
+    <link rel="stylesheet" type="text/css" href="css/tittle.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="css/cassetteplayer.css" media="screen"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>-->
+    <link rel="stylesheet" href="fonts/font-awesome-4.5.0/css/font-awesome.min.css">
 
     <!--Javascripts JS-->
     <script src="js/bootstrap.min.js"></script>
@@ -104,24 +97,31 @@
     <div class="row" id="divBlack"></div>
     <div id="divGroup" class="container">
       <div id="divCassette" class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
-        <div class="container" id="divVideoPlayer">
-          <video  id="myVideo" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-            <source src="video/background.mp4" type="video/mp4">
+        <div class="container col-xs-12 col-sm-10 col-md-8 col-lg-12" id="divVideoPlayer">
+          <video  id="myVideo" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-12 col-md-offset-1 col-lg-offset-0">
+            <source src="video/shakira.mp4" type="video/mp4">
               Your browser does not support HTML5 video.
             <!-- The metadata track -->
             <track onCueChange="metadata()" kind="metadata" type="text/webvtt" label="infoShakira" src="textTrack/shakira.vtt" srclang="en" default></track>
           </video>
         
-          <canvas id="c" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ></canvas>
+          <canvas id="c" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-12 col-md-offset-1 col-lg-offset-0" ></canvas>
 
-          <div class="container col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
-            <div id="progressBar" class="progress" onclick="progressBar()">
-              <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+          <div class="control container col-xs-12 col-sm-12 col-md-10 col-lg-12 col-md-offset-1 col-lg-offset-0">
+            <div class="topControl">
+              <div class="progress">
+                <span class="bufferBar"></span>
+                <span class="timeBar"></span>
+              </div>
+              <div class="time">
+                  <span class="current"></span> 
+                  <span class="spaceTime">/</span>  
+                  <span class="duration"></span> 
               </div>
             </div>
           </div>
         </div>
-        <div id="myVideoControls" class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 col-lg-offset-2">
+        <div id="myVideoControls" class="container col-xs-12 col-sm-12 col-md-12 col-lg-8 col-lg-offset-0">
           <ul class="vc-controls list-group" >
             <li class="list-group-item" id="play"><i class="fa fa-play"></i></li>
             <li class="list-group-item" id="pause"><i class="fa fa-pause"></i></li>

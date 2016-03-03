@@ -224,3 +224,15 @@ a {
   margin-top: -40px; 
   white-space: nowrap; 
 }
+
+/*PROGRESS BAR*/
+
+.current{
+  color: white;
+}
+.duration{
+  color: white;
+}
+.spaceTime{
+  color: white;
+}

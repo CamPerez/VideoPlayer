@@ -317,10 +317,24 @@ $(document).ready(function () {
   });
 
  
+//PROGRESS BAR
+
+mediaPlayer.addEventListener('timeupdate', updateProgressBar, false);
 
 
+function updateProgressBar() {
+   var progressBar = document.getElementById('progress-bar');
+   var percentage = Math.floor((100 / mediaPlayer.duration) *
+   mediaPlayer.currentTime);
+   progressBar.value = percentage;
+   progressBar.innerHTML = percentage + '% played';
+}
 
-
+function resetPlayer() {
+   progressBar.value = 0;
+   mediaPlayer.currentTime = 0;
+   changeButtonType(playPauseBtn, 'play');
+}
 
 
 
