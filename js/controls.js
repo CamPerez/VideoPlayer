@@ -210,8 +210,9 @@ function speedVideo(){
 /* SCREENSHOT */
 
 function paintFrame() {
-  var c;
-  switch(num_shot){
+ /* var c= document.createElement('canvas');
+  var div= document.getElementById("divScreenshot");*/
+  /*switch(num_shot){
       case 1:
         c = document.getElementById("canvas_screenshot1");
         num_shot=2;
@@ -224,9 +225,23 @@ function paintFrame() {
         c = document.getElementById("canvas_screenshot3");
         num_shot=1;
         break;
-    }
-  var context1 = c.getContext("2d");
+    }*/
+ /* var context1 = c.getContext("2d");
   context1.drawImage(video, 0, 0, 160, 120);
+  c.appendTo("divScreenshot");*/
+
+  var elementID = 'canvas' + $('canvas').length;
+    
+    $('<canvas class="col-xs-12 col-sm-12 col-md-12 col-lg-6">').attr({
+        id: elementID
+    }).css({
+      left: 20 + 'px',
+      top: 10 + 'px'
+    }).appendTo('#divScreenshot');
+
+    var c = document.getElementById(elementID);
+    var ctx = c.getContext('2d');
+    ctx.drawImage(video, 0, 0, 250, 140);
 }
 
 
