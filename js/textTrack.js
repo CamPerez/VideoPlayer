@@ -7,6 +7,9 @@ function metadata() {
   var video = document.getElementById("myVideo");
 
   video.textTracks[0].mode = "showing";
+  video.textTracks[2].mode = "showing"; //Show Subtitles
+
+  document.getElementById("subsVideo").innerHTML = video.textTracks[2].activeCues[0].text;
 
   var json = JSON.parse(video.textTracks[0].activeCues[0].text);
   document.getElementById("infoTitle").innerHTML = "<strong>Title</strong>: "+ json["title"];
@@ -20,3 +23,4 @@ function metadata() {
   document.getElementById("infoSrc").innerHTML = "<strong>Portada:</strong> "+ "<img class='img-responsive imgCover-size' src=" + json['src'] +" />";
   document.getElementById("infoWiki").innerHTML = "<strong>M&aacute informaci&oacuten:</strong> "+ "<a target='_blank' href=" + json['wiki'] +">" + json['wiki'] +"</a>";
 }
+

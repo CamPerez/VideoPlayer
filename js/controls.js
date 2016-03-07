@@ -6,6 +6,7 @@
  var barra;
  var magic;
  var screenshot;
+ var subs;
  var context;
  var canvas;
  var filter;
@@ -45,6 +46,7 @@ function initVideoPlayer(nomvideo){
   screenshot= document.getElementById("screenshot");
   videospeed= document.getElementById("videospeed");
   play_button= document.getElementById("play_button");
+  subs= document.getElementById("subs");
 
   canvas.addEventListener("click", playPauseVideo, false);
   play_button.addEventListener("click", playPauseVideo, false);
@@ -56,7 +58,7 @@ function initVideoPlayer(nomvideo){
   magic.addEventListener("click", putFilter, false);
   screenshot.addEventListener("click",paintFrame,false);
   videospeed.addEventListener("click",speedVideo,false);
-
+  subs.addEventListener("click",subsActive,false);
 
   if(nomvideo=="queen"){
     video.src= "video/shakira.mp4";
@@ -70,14 +72,25 @@ function initVideoPlayer(nomvideo){
   });
 
 }
+//Active subtitles
+function subsActive(){
+  var subsVideo = document.getElementById("subsVideo");
+  if (subsVideo.style.visibility=="hidden"){
+    subsVideo.style.visibility="visible";
+  }else{    
+    subsVideo.style.visibility="hidden";
+  }
+}
 
 function playPauseVideo(){
   if (video.paused === false) {
         video.pause();
         play_button.style.visibility="visible";
+        pause.click();
     } else {
         video.play();
         play_button.style.visibility="hidden";
+        play.click();
     }
 }
 
@@ -327,19 +340,27 @@ $(document).ready(function () {
       },80);                
   });
 
-  $('#cc').click(function(){
-      $("#cc").addClass("vc-control-pressed");     
-      //When pass 0.8 sec change image (class)
-      setTimeout(function() {
-            $("#cc").removeClass("vc-control-pressed");
-      },80);                
-  });
-
   $('#fullscreen').click(function(){
       $("#fullscreen").addClass("vc-control-pressed");     
       //When pass 0.8 sec change image (class)
       setTimeout(function() {
             $("#fullscreen").removeClass("vc-control-pressed");
+      },80);                
+  });
+  
+  $('#subs').click(function(){
+      $("#subs").addClass("vc-control-pressed");     
+      //When pass 0.8 sec change image (class)
+      setTimeout(function() {
+            $("#subs").removeClass("vc-control-pressed");
+      },80);                
+  });
+  
+  $('#liChapters').click(function(){
+      $("#liChapters").addClass("vc-control-pressed");     
+      //When pass 0.8 sec change image (class)
+      setTimeout(function() {
+            $("#liChapters").removeClass("vc-control-pressed");
       },80);                
   });
 });
@@ -392,6 +413,14 @@ $(document).ready(function () {
       $('#fullscreen').click(function() {
           audioElement.play();
       });
+      
+      $('#subs').click(function() {
+          audioElement.play();
+      });
+  
+      $('#liChapters').click(function() {
+          audioElement.play();
+      });
   });
 
  
@@ -412,6 +441,50 @@ function resetPlayer() {
    progressBar.value = 0;
    mediaPlayer.currentTime = 0;
    changeButtonType(playPauseBtn, 'play');
+}
+
+/*CHAPTERS*/
+
+function displayChapters(){
+
+  var liChapters = document.getElementById("liChapters");
+
+  var video = document.getElementById("myVideo");
+  var textTrack = document.getElementById("myVideo").textTracks[1];
+  var locationList = document.getElementById("chapters");
+  
+  if (textTrack.kind === "chapters"){
+    textTrack.mode = 'hidden';
+    //var cues = textTrack.cues;
+    //var cuesRev = cues.reverse();
+    //textTrack.cues.length --> BUG GOOGLE CHROME
+    //Need click twices --> BUG GOOGLE CHROME
+
+    for (var i = 0; i <= 2 ; i++) {
+      cue = textTrack.cues[i];
+      chapterName = cue.text; //BUG TWICE CLICK       
+      start = cue.startTime;
+      newLocale = document.createElement("li");
+      newLocale.setAttribute('id', start);
+      var localeDescription = document.createTextNode(cue.text);
+      newLocale.appendChild(localeDescription);
+      
+      var locationList = document.getElementById("chapters");
+      locationList.insertBefore(newLocale, locationList.childNodes[0]);
+      //Add Bootstrap List Groups
+      document.getElementById(start).className = "list-group-item";
+
+      newLocale.addEventListener("click", function() {
+        video.currentTime = this.id;
+      },false);
+    }
+  }
+  //Hidden button to show chapters
+  liChapters.style.visibility = "hidden";
+  //Sort List --> Reverse List
+  var i = locationList.childNodes.length;
+  while (i--)
+  locationList.appendChild(locationList.childNodes[i]);
 }
 
 

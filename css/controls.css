@@ -236,3 +236,17 @@ a {
 .spaceTime{
   color: white;
 }
+
+/*CHAPTERS*/
+
+
+#chapters li{
+  font-size: 18px;
+}
+
+#chapters li:hover{
+  cursor: pointer; 
+  background-color: #CB684E;
+  color: white;
+}
+

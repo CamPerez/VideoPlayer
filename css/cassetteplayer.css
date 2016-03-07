@@ -8,14 +8,30 @@
     -moz-border-radius: 24px 24px 0px 0px;
     -webkit-border-radius: 24px 24px 0px 0px;
     border: 0px solid #000000;
-
 }
-
 
 #play_button{
     visibility: hidden;
     position: absolute;
     z-index: 3;
+    top: 25%;
+}
+
+#subsVideo{
+    position: absolute;
+    z-index: 3;
+    top: 63%;
+    background-color: #1e1e1e;
+    opacity:  0.9;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+}
+
+#divChapters{    
+    visibility: hidden;
+    position: relative;
+    z-index: 2;
 }
 
 #divBlack {
@@ -39,7 +55,6 @@
 
 #divInfoRight{
     position: relative;
-   /* height: 400px;*/
     visibility: hidden;
     z-index: 2;
     background-color: rgba(139, 57, 46, 0.9);
@@ -76,19 +91,19 @@
 
 @media screen and (max-width: 800px) {
     #divVideoPlayer{        
-        height: 80em;  
+        /*height: 60em;  */
     }
 }
 
 @media screen and (max-width: 700px) {
     #divVideoPlayer{        
-        height: 60em;  
+        /*height: 60em;  */
     }
 }
 
 @media screen and (max-width: 650px) {
     #divVideoPlayer{        
-        height: 60em;  
+        /*height: 60em;  */
     }
 }
 
@@ -114,8 +129,11 @@
     border: 0px solid #000000;
 }
 
+#subs_skakira{
+    z-index: 1000;
+}
+
 #myVideoControls{
-    /*margin-top: -20px;*/
 
 }
 

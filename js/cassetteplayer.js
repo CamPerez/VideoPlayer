@@ -9,6 +9,7 @@ $(document).ready(function () {
           $('#divInfoRight').css('visibility', 'hidden');
           $('#divScreenshot').css('visibility', 'hidden');
           $('#play_button').css('visibility', 'hidden');
+          $('#divChapters').css('visibility', 'hidden');
       });
   });
 });
@@ -22,6 +23,7 @@ function blackFunction() {
     document.getElementById("divBlack").style.visibility="visible";
     document.getElementById("divScreenshot").style.visibility="visible";
     document.getElementById("play_button").style.visibility="visible";
+    document.getElementById("divChapters").style.visibility="visible";
     //scroll the document to top    
     window.scrollTo(0, 0);
 }
