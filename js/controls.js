@@ -10,17 +10,15 @@
  var context;
  var canvas;
  var filter;
- var cw;
- var ch;
+ var cw,ch;
  var scaleFactor;
  var snapshots;
  var speed;
  var videospeed;
  var play_button;
- var divBlack, divInfoRight;
-
-
- var track_info, track_info2, nomvideo;
+ var divBlack;
+ var liChapters;
+ var track_info, track_chapters,nomvideo;
 
 
 
@@ -48,6 +46,7 @@ function initVideoPlayer(nv){
   divInfoRight= document.getElementById("divInfoRight");
   src_mp4= document.getElementById("src_mp4");
   subs= document.getElementById("subs");
+  liChapters= document.getElementById("liChapters");
 
   canvas.addEventListener("click", playPauseVideo, false);
   play_button.addEventListener("click", playPauseVideo, false);
@@ -61,9 +60,12 @@ function initVideoPlayer(nv){
   videospeed.addEventListener("click",speedVideo,false);
   divBlack.addEventListener("click", cleanCassettePlayer, false);
   subs.addEventListener("click",subsActive,false);
+  liChapters.addEventListener("click", displayChapters,false);
 
   video.addEventListener("loadedmetadata", function() { 
     video.textTracks[0].mode = "showing"; // thanks Firefox 
+    video.textTracks[1].mode = "hidden"; // thanks Firefox 
+
   });
 
   
@@ -83,40 +85,36 @@ function initVideoPlayer(nv){
 
 
 function crearTextTrackMetadata(){
-
-  /*src_webm.src= "video/webm/"+nomvideo+".webm";
-  src_ogg.src= "video/ogg/"+nomvideo+".ogg";
-  console.log("despues de reiniciar nuevo cassete, la activa es: ");
-  console.log(document.getElementById("myVideo").textTracks[0]);
-   
- 
-  document.getElementById("myVideo").textTracks[0].addEventListener("cuechange", metadata, false);
-  */
   track_info = document.createElement("track");
-     track_info.kind = "metadata";  
-     track_info.src = "textTrack/"+nomvideo+".vtt";
+  track_info.kind = "metadata";  
+  track_info.src = "textTrack/"+nomvideo+".vtt";
      
-     track_info.addEventListener("cuechange", function() { 
-        this.mode = "showing"; 
-        video.textTracks[0].mode = "showing"; // thanks Firefox 
+  track_info.addEventListener("cuechange", function() { 
+      this.mode = "showing"; 
+      video.textTracks[0].mode = "showing"; // thanks Firefox 
 
-        document.getElementById("myVideo").textTracks[0].mode="showing";
+      document.getElementById("myVideo").textTracks[0].mode="showing";
 
-        var json = JSON.parse(document.getElementById("myVideo").textTracks[0].activeCues[0].text);
-        document.getElementById("infoTitle").innerHTML = "<strong>T&iacutetulo</strong>: "+ json["title"];
-        document.getElementById("infoAlbum").innerHTML = "<strong>&Aacutelbum:</strong> "+ json["album"];
-        document.getElementById("infoPublication").innerHTML = "<strong>Fecha de publicaci&oacuten:</strong> "+ json["publication"];
-        document.getElementById("infoRecord").innerHTML = "<strong>Fecha de grabaci&oacuten:</strong> "+ json["record"];
-        document.getElementById("infoGenre").innerHTML = "<strong>G&eacutenero musical:</strong> "+ json["genre"];
-        document.getElementById("infoLabel").innerHTML = "<strong>Sello discogr&aacutefico:</strong> "+ json["label"];
-        document.getElementById("infoAuthors").innerHTML = "<strong>Autores:</strong> "+ json["authors"];
-        document.getElementById("infoProducers").innerHTML = "<strong>Productores:</strong> "+ json["producers"];
-        document.getElementById("infoSrc").innerHTML = "<img class='img-responsive imgCover-size' src=" + json['src'] +" />";
-        document.getElementById("infoWiki").innerHTML = "<strong>M&aacutes informaci&oacuten:</strong> "+ "<a target='_blank' href=" + json['wiki'] +">" + json['wiki'] +"</a>";
-      }); 
+      var json = JSON.parse(document.getElementById("myVideo").textTracks[0].activeCues[0].text);
+      document.getElementById("infoTitle").innerHTML = "<strong>T&iacutetulo</strong>: "+ json["title"];
+      document.getElementById("infoAlbum").innerHTML = "<strong>&Aacutelbum:</strong> "+ json["album"];
+      document.getElementById("infoPublication").innerHTML = "<strong>Fecha de publicaci&oacuten:</strong> "+ json["publication"];
+      document.getElementById("infoRecord").innerHTML = "<strong>Fecha de grabaci&oacuten:</strong> "+ json["record"];
+      document.getElementById("infoGenre").innerHTML = "<strong>G&eacutenero musical:</strong> "+ json["genre"];
+      document.getElementById("infoLabel").innerHTML = "<strong>Sello discogr&aacutefico:</strong> "+ json["label"];
+      document.getElementById("infoAuthors").innerHTML = "<strong>Autores:</strong> "+ json["authors"];
+      document.getElementById("infoProducers").innerHTML = "<strong>Productores:</strong> "+ json["producers"];
+      document.getElementById("infoSrc").innerHTML = "<img class='img-responsive imgCover-size' src=" + json['src'] +" />";
+      document.getElementById("infoWiki").innerHTML = "<strong>M&aacutes informaci&oacuten:</strong> "+ "<a target='_blank' href=" + json['wiki'] +">" + json['wiki'] +"</a>";
+   }); 
 
-      video.appendChild(track_info);
- 
+
+  track_chapters = document.createElement("track");
+  track_chapters.kind = "chapters";  
+  track_chapters.src="textTrack/chapters_"+nomvideo+".vtt";
+
+   video.appendChild(track_info);
+   video.appendChild(track_chapters);
 }
 
 function crearSourcesVideo(){
@@ -126,7 +124,8 @@ function crearSourcesVideo(){
   video.appendChild(src_mp4);
   video.load(); 
 }
-//Active subtitles
+
+
 function subsActive(){
   var subsVideo = document.getElementById("subsVideo");
   if (subsVideo.style.visibility=="hidden"){
@@ -140,32 +139,10 @@ function subsActive(){
 function cleanCassettePlayer(){
   video.pause();
 
- /* console.log("la activa es ");
-  console.log(document.getElementById("myVideo").textTracks[0]);
-  for (var i = 0; i <= document.getElementById("myVideo").textTracks[0].activeCues.length; i++) {
-    document.getElementById("myVideo").textTracks[0].removeCue(document.getElementById("myVideo").textTracks[0].activeCues[i]);
-  };*/
   $( "video" ).empty();
   $( "#divScreenshot" ).empty();
 }
 
-/*function metadata() {
-
-  document.getElementById("myVideo").textTracks[0].mode="showing";
-
-  var json = JSON.parse(document.getElementById("myVideo").textTracks[0].activeCues[0].text);
-  document.getElementById("infoTitle").innerHTML = "<strong>T&iacutetulo</strong>: "+ json["title"];
-  document.getElementById("infoAlbum").innerHTML = "<strong>&Aacutelbum:</strong> "+ json["album"];
-  document.getElementById("infoPublication").innerHTML = "<strong>Fecha de publicaci&oacuten:</strong> "+ json["publication"];
-  document.getElementById("infoRecord").innerHTML = "<strong>Fecha de grabaci&oacuten:</strong> "+ json["record"];
-  document.getElementById("infoGenre").innerHTML = "<strong>G&eacutenero musical:</strong> "+ json["genre"];
-  document.getElementById("infoLabel").innerHTML = "<strong>Sello discogr&aacutefico:</strong> "+ json["label"];
-  document.getElementById("infoAuthors").innerHTML = "<strong>Autores:</strong> "+ json["authors"];
-  document.getElementById("infoProducers").innerHTML = "<strong>Productores:</strong> "+ json["producers"];
-  document.getElementById("infoSrc").innerHTML = "<img class='img-responsive imgCover-size' src=" + json['src'] +" />";
-  document.getElementById("infoWiki").innerHTML = "<strong>M&aacutes informaci&oacuten:</strong> "+ "<a target='_blank' href=" + json['wiki'] +">" + json['wiki'] +"</a>";
-
-}*/
 
 function playPauseVideo(){
   if (video.paused === false) {
@@ -210,7 +187,9 @@ function changeVolumVideo(){
 }
 
  
- /*CANVAS: FILTROS DE VÍDEO*/
+/********************************/
+//CANVAS:FILTRO DE VIDEO 
+/********************************/
 
   function putFilter(){
   if(filter=="grey"){
@@ -283,12 +262,9 @@ function draw(v,c,w,h,filter) {
   }
 
 
-/* SALTOS DE TIEMPO */
-
-
-
-
-/* VELOCIDAD VÍDEO */
+/********************************/
+//vVELOCIDAD DEL VIDEO
+/********************************/
 
 function speedVideo(){
 
@@ -305,7 +281,9 @@ function speedVideo(){
 }
 
 
-/* SCREENSHOT */
+/********************************/
+//SCREENSHOT
+/********************************/
 
 function paintFrame() {
   var elementID = 'canvas' + $('canvas').length;
@@ -349,7 +327,9 @@ function paintFrame() {
   });
 
 
- /*EFECTO PROFUNDIDAD BOTONES*/
+/********************************/
+//PROFUNDIDAD BOTONES
+/********************************/
 
 $(document).ready(function () { 
   $('#play').click(function(){ 
@@ -431,7 +411,9 @@ $(document).ready(function () {
 });
 
 
-/*EFECTOS DE AUDIO DE LOS BOTONES*/
+/********************************/
+//AUDIO BOTONES
+/********************************/
 
   $(document).ready(function() {
       var audioElement = document.createElement('audio');
@@ -488,44 +470,139 @@ $(document).ready(function () {
       });
   });
 
+
+/********************************/
+//PROGRESS BAR 
+/********************************/
+$(document).ready(function(){
+
+  var video = $('#myVideo');
+
+  //remove default control when JS loaded
+  $('.control').css('visibility', 'hidden');
+  $('.control').show().css({'bottom':5});
+
+  $(document).mousemove(function() { 
+    $('#c').hover(      
+      function() {
+        $('.control').css('visibility', 'visible');
+        $('.control').stop().animate({'bottom':20}, 250);
+      },
+      function() {
+        $('.control').css('visibility', 'hidden');
+      }
+    );
+    $('.control').hover(      
+      function() {
+        $('.control').css('visibility', 'visible');
+      },
+      function() {
+        $('.control').css('visibility', 'hidden');
+      }
+    );
+  });
+
+
+  //display video buffering bar
+  var startBuffer = function() {
+    var currentBuffer = video[0].buffered.end(0);
+    var maxduration = video[0].duration;
+    var perc = 100 * currentBuffer / maxduration;
+    $('.bufferBar').css('width',perc+'%');
+      
+    if(currentBuffer < maxduration) {
+      setTimeout(startBuffer, 500);
+    }
+  };  
+  
+  //display current video play time
+  video.on('timeupdate', function() {
+    var currentPos = video[0].currentTime;
+    var maxduration = video[0].duration;
+    var perc = 100 * currentPos / maxduration;
+    $('.timeBar').css('width',perc+'%');  
+    $('.current').text(timeFormat(currentPos)); 
+
+    $('.duration').text(timeFormat(maxduration));
+  });
+  
+
+  //VIDEO PROGRESS BAR
+  //when video timebar clicked
+  var timeDrag = false; /* check for drag event */
+  $('.progress').on('mousedown', function(e) {
+    timeDrag = true;
+    updatebar(e.pageX);
+  });
+  $(document).on('mouseup', function(e) {
+    if(timeDrag) {
+      timeDrag = false;
+      updatebar(e.pageX);
+    }
+  });
+  $(document).on('mousemove', function(e) {
+    if(timeDrag) {
+      updatebar(e.pageX);
+    }
+  });
+  var updatebar = function(x) {
+    var progress = $('.progress');
+    
+    //calculate drag position
+    //and update video currenttime
+    //as well as progress bar
+    var maxduration = video[0].duration;
+    var position = x - progress.offset().left;
+    var percentage = 100 * position / progress.width();
+    if(percentage > 100) {
+      percentage = 100;
+    }
+    if(percentage < 0) {
+      percentage = 0;
+    }
+    $('.timeBar').css('width',percentage+'%');  
+    video[0].currentTime = maxduration * percentage / 100;
+  };
+
+    //Time format converter - 00:00
+  var timeFormat = function(seconds){
+    var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
+    var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
+    return m+":"+s;
+  };
+  
+});
+
+
  
-//PROGRESS BAR
-
-mediaPlayer.addEventListener('timeupdate', updateProgressBar, false);
-
-
-function updateProgressBar() {
-   var progressBar = document.getElementById('progress-bar');
-   var percentage = Math.floor((100 / mediaPlayer.duration) * mediaPlayer.currentTime);
-   progressBar.value = percentage;
-   progressBar.innerHTML = percentage + '% played';
-}
-
-function resetPlayer() {
-   progressBar.value = 0;
-   mediaPlayer.currentTime = 0;
-   changeButtonType(playPauseBtn, 'play');
-}
-
-/*CHAPTERS*/
+/********************************/
+// CHAPTERS 
+/********************************/
 
 function displayChapters(){
 
-  var liChapters = document.getElementById("liChapters");
-
-  var video = document.getElementById("myVideo");
-  var textTrack = document.getElementById("myVideo").textTracks[1];
+  var cue;
   var locationList = document.getElementById("chapters");
-  
-  if (textTrack.kind === "chapters"){
-    textTrack.mode = 'hidden';
+  track_chapters = video.textTracks[1];
+  track_chapters.src="textTrack/chapters_"+nomvideo+".vtt";
+
+
+  if (track_chapters.kind === "chapters"){
+    track_chapters.mode = "hidden";
+    //console.log(video.textTracks[1]);
+    //console.log(video.textTracks[1].mode);
+    //console.log(video.textTracks[1].src);
+    //console.log(track_chapters.src);
+
     //var cues = textTrack.cues;
     //var cuesRev = cues.reverse();
     //textTrack.cues.length --> BUG GOOGLE CHROME
     //Need click twices --> BUG GOOGLE CHROME
 
+    //alert(video.textTracks[1].cues[0].id);
+
     for (var i = 0; i <= 2 ; i++) {
-      cue = textTrack.cues[i];
+      cue = track_chapters.cues[i];
       chapterName = cue.text; //BUG TWICE CLICK       
       start = cue.startTime;
       newLocale = document.createElement("li");
