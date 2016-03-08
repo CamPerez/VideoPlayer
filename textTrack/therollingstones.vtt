@@ -1,0 +1,46 @@
+WEBVTT FILE
+
+0
+00:00:00.000 --> 00:03:56.000
+{
+"title": "Start Me Up",
+"album": "Tattoo You",
+"publication": "14 de agosto de 1981",
+"record": "1981",
+"genre": "Hard rock",
+"label": "Rolling Stones Records",
+"authors": "Jagger, Richards",
+"producers": "The Glimmer Twins",
+"src": "images/albums/startmeup.jpg",
+"wiki": "https://goo.gl/4IvND5"
+}
+
+1
+00:03:57.000 --> 00:07:08.000
+{
+"title": "Sad sad sad",
+"album": "Steel Wheels",
+"publication": "29 de agosto de 1989",
+"record": "1989",
+"genre": "Alternative rock",
+"label": "Rolling Stones Records",
+"authors": "Jagger, Richards",
+"producers": "The Glimmer Twins",
+"src": "images/albums/sadsadsad.jpg",
+"wiki": "https://goo.gl/65oTrd"
+}
+
+2
+00:07:09.000 --> 00:11:58.000
+{
+"title": "Tumbling Dice",
+"album": "Exile on Main St.",
+"publication": "14 de abril de 1972",
+"record": "1971",
+"genre": "Rock",
+"label": "Rolling Stones Records",
+"authors": "Jagger, Richards",
+"producers": "Jimmy Miller",
+"src": "images/albums/tumblingdice.jpg",
+"wiki": "https://goo.gl/FfVlrh"
+}

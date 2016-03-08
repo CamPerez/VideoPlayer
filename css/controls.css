@@ -1,0 +1,252 @@
+
+/********************************/
+/*CONTROLS*/
+/********************************/
+
+/* Controls list */
+ul.vc-controls{
+    list-style: none;
+    /*padding: 0;*/
+    bottom: 18px;
+    background: -moz-linear-gradient(top, rgba(170,170,170,0.35) 0%, rgba(255,255,255,0.44) 50%, rgba(255,255,255,0.53) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(170,170,170,0.35)), color-stop(50%,rgba(255,255,255,0.44)), color-stop(100%,rgba(255,255,255,0.53)));
+    background: -webkit-linear-gradient(top, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
+    background: -o-linear-gradient(top, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
+    background: -ms-linear-gradient(top, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
+    background: linear-gradient(to bottom, rgba(170,170,170,0.35) 0%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.53) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59aaaaaa', endColorstr='#87ffffff',GradientType=0 );
+    /*border: 1px solid rgba(0,0,0,0.1);*/
+    border-bottom-color: rgba(255,255,255,0.6);
+    /*padding: 8px;*/
+    /*height: 54px;*/
+    box-shadow: 
+        inset 0 1px 0px rgba(0,0,0,0.05),
+        0 1px 0 rgba(255,255,255,0.8),
+        0 -1px 0 rgba(255,255,255,0.4),
+        inset 0 2px 19px rgba(0,0,0,0.05),
+        0 2px 1px rgba(0,0,0,0.06);
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border-radius: 12px;
+}
+
+/* Controls list items */
+ul.vc-controls li {
+    display: block;
+    float: left;
+    font-size: 20px;
+    /*width: 85px;*/
+    height: 50px;
+    line-height: 55px;
+    text-align: left;
+    padding: 10px;
+    cursor: pointer;
+    background: #ddd url(../images/metal.jpg) no-repeat center top;
+    box-shadow: 
+        inset 0 0 0 1px rgba(0,0,0, 0.2), 
+        inset 0 0 1px 2px rgba(255,255,255,0.9),
+        inset 0 -6px 5px rgba(0,0,0,0.1),
+        0 6px 7px rgba(0,0,0,0.3),
+        0 4px 1px rgba(0,0,0,0.5);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ul.vc-controls li:first-child{
+    border-radius: 8px 0 0 8px;
+}
+
+ul.vc-controls li:last-child{
+    border-radius: 0px 8px 8px 0px;
+}
+
+/*PRESSED*/
+
+/* Pressed (active) */
+ul.vc-controls li.vc-control-active{
+    height: 50px;
+    margin-top: 2px;
+    background-image: url(../images/metal_dark.jpg);
+    box-shadow: 
+        inset 0 0 0 1px rgba(0,0,0, 0.18), 
+        inset 0 0 1px 2px rgba(255,255,255,0.5),
+        inset 0 -6px 5px rgba(0,0,0,0.1),
+        0 6px 7px rgba(0,0,0,0.3),
+        0 2px 1px rgba(0,0,0,0.5);
+
+}
+
+/* Activated */
+ul.vc-controls li.vc-control-pressed,
+ul.vc-controls li.vc-control-active.vc-control-pressed{
+    height: 50px;
+    background-image: url(../images/metal_dark.jpg);
+    margin-top: 4px;
+    box-shadow: 
+        inset 0 0 0 1px rgba(0,0,0, 0.2), 
+        inset 0 0 5px 1px rgba(255,255,255,0.5),
+        inset 0 -10px 15px rgba(0,0,0,0.2),
+        0 7px 5px rgba(255,255,255,0.5);
+}
+
+
+
+/*VOLUMN*/
+/*
+#slider{
+    width: 200px;
+    height: 10px;
+}
+
+input[type="range"]{
+  -webkit-appearance:none;
+  width:200px;
+  height:2px;
+  background: aqua;
+  background-position:center;
+  background-repeat:no-repeat;
+  position: absolute;
+  top: 0px;
+  bottoM: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:20px;
+  height:20px;
+  border-radius: 100%;
+  background: #434343;
+  position:relative;
+  border: 10px solid rgba(0,0,0,.3);
+  z-index:3;
+  cursor: pointer;
+}*/
+
+/* Import */
+
+
+input {
+  -webkit-appearance: none; 
+  width: 160px; 
+  height: 20px; 
+  margin: 10px 50px; 
+  background: linear-gradient(to right, #16a085 0%, #16a085 100%); 
+  background-size: 150px 10px; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  overflow: hidden; 
+  outline: none; 
+  zoom: 130%; 
+  display: block; 
+  margin: auto; 
+  margin-bottom: 30px; 
+}
+
+input::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  width: 20px; 
+  height: 20px; 
+  background: #27ae60; 
+  position: relative; 
+  z-index: 3; 
+}
+
+input::-webkit-slider-thumb:after {
+  content: " "; 
+  width: 160px; 
+  height: 10px; 
+  position: absolute; 
+  z-index: 1; 
+  right: 20px; 
+  top: 5px; 
+  background: #2ecc71; 
+}
+
+.orange::-webkit-slider-thumb {
+  background: #d35400; 
+}
+
+.orange::-webkit-slider-thumb:after {
+  background: #e67e22; 
+}
+
+.one {
+  width: 0px; 
+  height: 0px; 
+  background-color: transparent; 
+  line-height: 30px; 
+  color: #ecf0f1; 
+  cursor: pointer; 
+  border: 70px solid transparent; 
+  border-left: 70px solid #16a085; 
+  border-top: 70px solid #16a085; 
+  left: 0px; 
+  top: 0px; 
+  position: absolute; 
+}
+
+a {
+  text-decoration: none; 
+}
+
+.one span {
+  margin-left: -60px; 
+  position: absolute; 
+  margin-top: -40px; 
+}
+
+.two {
+  width: 0px; 
+  height: 0px; 
+  background-color: transparent; 
+  line-height: 30px; 
+  color: #ecf0f1; 
+  cursor: pointer; 
+  border: 70px solid transparent; 
+  border-right: 70px solid #16a085; 
+  border-top: 70px solid #16a085; 
+  right: 0px; 
+  top: 0px; 
+  position: absolute; 
+}
+
+.two span {
+  margin-left: -15px; 
+  position: absolute; 
+  margin-top: -40px; 
+  white-space: nowrap; 
+}
+
+/*PROGRESS BAR*/
+
+.current{
+  color: white;
+}
+.duration{
+  color: white;
+}
+.spaceTime{
+  color: white;
+}
+
+/*CHAPTERS*/
+
+
+#chapters li{
+  font-size: 18px;
+}
+
+#chapters li:hover{
+  cursor: pointer; 
+  background-color: #CB684E;
+  color: white;
+}
+
