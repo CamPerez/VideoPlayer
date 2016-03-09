@@ -1,7 +1,6 @@
 
  var video;
- var play;
- var pause;
+ var play,pause,stop;
  var fullscreen;
  var barra;
  var magic;
@@ -16,10 +15,11 @@
  var speed;
  var videospeed;
  var play_button;
- var divBlack;
+ var divBlack, subsVideo, locationList;
  var liChapters;
- var track_info, track_chapters,nomvideo;
-
+ var chapter_clicked;
+ var track_info, track_chapters, track_subs, nomvideo;
+ var jSrc, jTitle, jAlbum, jPublic,jRecord,jGenre,jLabel,jAuthors,jProducers,jWiki;
 
 
 function initVideoPlayer(nv){
@@ -28,9 +28,31 @@ function initVideoPlayer(nv){
   context = canvas.getContext('2d');
   filter="normal";
   speed="normal";
+  chapter_clicked= false;
   nomvideo=nv;
   scaleFactor = 0.25;
   snapshots = [];
+
+  jSrc= document.createElement("h4");
+  jTitle= document.createElement("h4");
+  jAlbum= document.createElement("h4");
+  jPublic= document.createElement("h4");
+  jRecord= document.createElement("h4");
+  jGenre= document.createElement("h4");
+  jLabel= document.createElement("h4");
+  jAuthors= document.createElement("h4");
+  jProducers= document.createElement("h4");
+  jWiki= document.createElement("h4");
+  divInfoRight.appendChild(jSrc);
+  divInfoRight.appendChild(jTitle);
+  divInfoRight.appendChild(jAlbum);
+  divInfoRight.appendChild(jPublic);
+  divInfoRight.appendChild(jRecord);
+  divInfoRight.appendChild(jGenre);
+  divInfoRight.appendChild(jLabel);
+  divInfoRight.appendChild(jAuthors);
+  divInfoRight.appendChild(jProducers);
+  divInfoRight.appendChild(jWiki);
 
   video= document.getElementById("myVideo"); 
   play= document.getElementById("play"); 
@@ -43,6 +65,8 @@ function initVideoPlayer(nv){
   videospeed= document.getElementById("videospeed");
   play_button= document.getElementById("play_button");
   divBlack= document.getElementById("divBlack");
+  subsVideo = document.getElementById("subsVideo");
+  subsVideo.style.visibility="hidden";
   divInfoRight= document.getElementById("divInfoRight");
   src_mp4= document.getElementById("src_mp4");
   subs= document.getElementById("subs");
@@ -65,7 +89,7 @@ function initVideoPlayer(nv){
   video.addEventListener("loadedmetadata", function() { 
     video.textTracks[0].mode = "showing"; // thanks Firefox 
     video.textTracks[1].mode = "hidden"; // thanks Firefox 
-
+    video.textTracks[2].mode = "hidden"; // thanks Firefox 
   });
 
   
@@ -96,16 +120,30 @@ function crearTextTrackMetadata(){
       document.getElementById("myVideo").textTracks[0].mode="showing";
 
       var json = JSON.parse(document.getElementById("myVideo").textTracks[0].activeCues[0].text);
-      document.getElementById("infoTitle").innerHTML = "<strong>T&iacutetulo</strong>: "+ json["title"];
-      document.getElementById("infoAlbum").innerHTML = "<strong>&Aacutelbum:</strong> "+ json["album"];
-      document.getElementById("infoPublication").innerHTML = "<strong>Fecha de publicaci&oacuten:</strong> "+ json["publication"];
-      document.getElementById("infoRecord").innerHTML = "<strong>Fecha de grabaci&oacuten:</strong> "+ json["record"];
-      document.getElementById("infoGenre").innerHTML = "<strong>G&eacutenero musical:</strong> "+ json["genre"];
-      document.getElementById("infoLabel").innerHTML = "<strong>Sello discogr&aacutefico:</strong> "+ json["label"];
-      document.getElementById("infoAuthors").innerHTML = "<strong>Autores:</strong> "+ json["authors"];
-      document.getElementById("infoProducers").innerHTML = "<strong>Productores:</strong> "+ json["producers"];
-      document.getElementById("infoSrc").innerHTML = "<img class='img-responsive imgCover-size' src=" + json['src'] +" />";
-      document.getElementById("infoWiki").innerHTML = "<strong>M&aacutes informaci&oacuten:</strong> "+ "<a target='_blank' href=" + json['wiki'] +">" + json['wiki'] +"</a>";
+      
+      
+      jSrc.innerHTML = "<img class='img-responsive imgCover-size' src=" + json['src'] +" />";
+      
+      jTitle.innerHTML = "<strong>T&iacutetulo</strong>: "+ json["title"];
+      
+      jAlbum.innerHTML = "<strong>&Aacutelbum:</strong> "+ json["album"];
+      
+      jPublic.innerHTML = "<strong>Fecha de publicaci&oacuten:</strong> "+ json["publication"];
+     
+      jRecord.innerHTML = "<strong>Fecha de grabaci&oacuten:</strong> "+ json["record"];
+      
+      jGenre.innerHTML = "<strong>G&eacutenero musical:</strong> "+ json["genre"];
+     
+      jLabel.innerHTML = "<strong>Sello discogr&aacutefico:</strong> "+ json["label"];
+     
+      jAuthors.innerHTML = "<strong>Autores:</strong> "+ json["authors"];
+      
+      jProducers.innerHTML = "<strong>Productores:</strong> "+ json["producers"];
+      
+      jWiki.innerHTML = "<strong>M&aacutes informaci&oacuten:</strong> "+ "<a target='_blank' href=" + json['wiki'] +">" + json['wiki'] +"</a>";
+  
+      
+
    }); 
 
 
@@ -113,8 +151,22 @@ function crearTextTrackMetadata(){
   track_chapters.kind = "chapters";  
   track_chapters.src="textTrack/chapters_"+nomvideo+".vtt";
 
-   video.appendChild(track_info);
-   video.appendChild(track_chapters);
+  track_subs = document.createElement("track");
+  track_subs.kind = "subtitles";  
+  track_subs.srclang= "en";
+  track_subs.src="textTrack/sub_"+nomvideo+".vtt";
+
+  track_subs.addEventListener("cuechange", function(){
+    this.mode = "showing"; 
+    video.textTracks[2].mode = "showing"; // thanks Firefox 
+    document.getElementById("myVideo").textTracks[2].mode="showing";
+
+    document.getElementById("subsVideo").innerHTML = video.textTracks[2].activeCues[0].text;
+  });
+
+  video.appendChild(track_info);
+  video.appendChild(track_chapters);
+  video.appendChild(track_subs);
 }
 
 function crearSourcesVideo(){
@@ -127,7 +179,7 @@ function crearSourcesVideo(){
 
 
 function subsActive(){
-  var subsVideo = document.getElementById("subsVideo");
+  
   if (subsVideo.style.visibility=="hidden"){
     subsVideo.style.visibility="visible";
   }else{    
@@ -141,6 +193,9 @@ function cleanCassettePlayer(){
 
   $( "video" ).empty();
   $( "#divScreenshot" ).empty();
+  $( "#divInfoRight" ).empty();
+  subsVideo.style.visibility="hidden";
+  locationList.style.visibility="hidden";
 }
 
 
@@ -582,50 +637,55 @@ $(document).ready(function(){
 function displayChapters(){
 
   var cue;
-  var locationList = document.getElementById("chapters");
+  locationList = document.getElementById("chapters");
   track_chapters = video.textTracks[1];
   track_chapters.src="textTrack/chapters_"+nomvideo+".vtt";
 
-
-  if (track_chapters.kind === "chapters"){
+  if(!chapter_clicked){
+    $("#chapters").empty();
+    locationList = document.getElementById("chapters");
+    if (track_chapters.kind === "chapters"){
     track_chapters.mode = "hidden";
-    //console.log(video.textTracks[1]);
-    //console.log(video.textTracks[1].mode);
-    //console.log(video.textTracks[1].src);
-    //console.log(track_chapters.src);
 
     //var cues = textTrack.cues;
     //var cuesRev = cues.reverse();
     //textTrack.cues.length --> BUG GOOGLE CHROME
     //Need click twices --> BUG GOOGLE CHROME
 
-    //alert(video.textTracks[1].cues[0].id);
+      for (var i = 0; i <= 2 ; i++) {
+        cue = track_chapters.cues[i];
+        chapterName = cue.text; //BUG TWICE CLICK       
+        start = cue.startTime;
+        newLocale = document.createElement("li");
+        newLocale.setAttribute('id', start);
+        var localeDescription = document.createTextNode(cue.text);
+        newLocale.appendChild(localeDescription);
+        
+        //var locationList = document.getElementById("chapters");
+        locationList.insertBefore(newLocale, locationList.childNodes[0]);
+        //Add Bootstrap List Groups
+        document.getElementById(start).className = "list-group-item";
 
-    for (var i = 0; i <= 2 ; i++) {
-      cue = track_chapters.cues[i];
-      chapterName = cue.text; //BUG TWICE CLICK       
-      start = cue.startTime;
-      newLocale = document.createElement("li");
-      newLocale.setAttribute('id', start);
-      var localeDescription = document.createTextNode(cue.text);
-      newLocale.appendChild(localeDescription);
-      
-      var locationList = document.getElementById("chapters");
-      locationList.insertBefore(newLocale, locationList.childNodes[0]);
-      //Add Bootstrap List Groups
-      document.getElementById(start).className = "list-group-item";
-
-      newLocale.addEventListener("click", function() {
-        video.currentTime = this.id;
-      },false);
+        newLocale.addEventListener("click", function() {
+          video.currentTime = this.id;
+        },false);
+      }
     }
+    //Hidden button to show chapters
+    //liChapters.style.display = "none";
+    //Sort List --> Reverse List
+    var i = locationList.childNodes.length;
+    while (i--)
+    locationList.appendChild(locationList.childNodes[i]);
+    locationList.style.visibility="visible";
+    chapter_clicked=true;
+  
+  }else{
+    locationList.style.visibility="hidden";
+    chapter_clicked=false;
   }
-  //Hidden button to show chapters
-  liChapters.style.visibility = "hidden";
-  //Sort List --> Reverse List
-  var i = locationList.childNodes.length;
-  while (i--)
-  locationList.appendChild(locationList.childNodes[i]);
+
+ 
 }
 
 
