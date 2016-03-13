@@ -71,6 +71,7 @@ function initVideoPlayer(nv){
   src_mp4= document.getElementById("src_mp4");
   subs= document.getElementById("subs");
   liChapters= document.getElementById("liChapters");
+  coverVideo= document.getElementById("coverVideo");
 
   canvas.addEventListener("click", playPauseVideo, false);
   play_button.addEventListener("click", playPauseVideo, false);
@@ -92,12 +93,12 @@ function initVideoPlayer(nv){
     video.textTracks[2].mode = "hidden"; // thanks Firefox 
   });
 
-  
+  crearSourcesCover();
   crearSourcesVideo();
   crearTextTrackMetadata();
 
-  cw = canvas.clientWidth;
-  ch = canvas.clientHeight;
+  cw = 700;
+  ch = 335;
   canvas.width = cw;
   canvas.height = ch;
   console.log(cw);
@@ -105,6 +106,8 @@ function initVideoPlayer(nv){
 
   $(video).on("play", function(){
     draw(video,context,cw,ch,filter);
+    video.style.display="none";
+    coverVideo.style.visibility="hidden";
   });
 }
 
@@ -141,9 +144,7 @@ function crearTextTrackMetadata(){
       
       jProducers.innerHTML = "<strong>Productores:</strong> "+ json["producers"];
       
-      jWiki.innerHTML = "<strong>M&aacutes informaci&oacuten:</strong> "+ "<a target='_blank' href=" + json['wiki'] +">" + json['wiki'] +"</a>";
-  
-      
+      jWiki.innerHTML = "<strong>M&aacutes informaci&oacuten:</strong> "+ "<a target='_blank' href=" + json['wiki'] +">" + json['wiki'] +"</a>";     
 
    }); 
 
@@ -175,12 +176,15 @@ function crearSourcesVideo(){
   src_mp4.src= "video/mp4/"+nomvideo+".mp4";
   src_mp4.type= "video/mp4";
   video.appendChild(src_mp4);
-  video.load(); 
+  video.load();
+}
+
+function crearSourcesCover(){
+  coverVideo.src= "images/loadCovers/"+nomvideo+".jpg";
 }
 
 
-function subsActive(){
-  
+function subsActive(){  
   if (subsVideo.style.visibility=="hidden"){
     subsVideo.style.visibility="visible";
   }else{    
@@ -307,7 +311,7 @@ function filterdata(idata,type) {
 
 function draw(v,c,w,h,filter) {
 
-    if(v.paused || v.ended) return false;
+  if(v.paused || v.ended) return false;
     c.drawImage(v,0,0,w,h);
 
     var idata = c.getImageData(0,0,w,h);

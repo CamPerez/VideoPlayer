@@ -17,6 +17,18 @@
     top: 25%;
 }
 
+#coverVideo{
+    position: absolute;
+    z-index: 3;
+    border-radius: 24px 24px 0px 0px;
+    -moz-border-radius: 24px 24px 0px 0px;
+    -webkit-border-radius: 24px 24px 0px 0px;
+    border: 0px solid #000000;
+    margin-top: 10px;
+    width: 700px;
+    height: 310px;
+}
+
 #subsVideo{
     position: absolute;
     z-index: 3;
@@ -87,11 +99,18 @@
     #divVideoPlayer{        
         height: 30em;  
     }
+    #coverVideo{      
+        height: 200px; 
+    }
+
 }
 
 @media screen and (max-width: 1000px) {
     #divVideoPlayer{        
         height: 80em;  
+    } 
+    #coverVideo{       
+        height: 200px;
     }
 }
 
@@ -99,11 +118,17 @@
     #divVideoPlayer{        
         height: 40em;  
     }
+    #coverVideo{     
+        height: 200px;  
+    }
 }
 
 @media screen and (max-width: 650px) {
     #divVideoPlayer{        
         /*height: 60em;  */
+    }
+    #coverVideo{        
+        height: 200px;  
     }
 }
 
@@ -111,11 +136,17 @@
     #divVideoPlayer{        
         height: 25em;  
     }
+    #coverVideo{        
+        height: 80px;  
+    }
 }
 
 @media screen and (max-width: 400px) {
     #divVideoPlayer{        
         height: 15em;  
+    }
+    #coverVideo{      
+        height: 80px;   
     }
 }
 
@@ -133,6 +164,9 @@
     z-index: 1000;
 }
 
+#myVideoControls{
+
+}
 
 /********************************/
 /*INFO VIDEO*/
