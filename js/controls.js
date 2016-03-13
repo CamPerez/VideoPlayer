@@ -538,6 +538,7 @@ $(document).ready(function(){
   $('.control').show().css({'bottom':5});
 
   $(document).mousemove(function() { 
+    //c = canvas
     $('#c').hover(      
       function() {
         $('.control').css('visibility', 'visible');
@@ -550,6 +551,15 @@ $(document).ready(function(){
     $('.control').hover(      
       function() {
         $('.control').css('visibility', 'visible');
+      },
+      function() {
+        $('.control').css('visibility', 'hidden');
+      }
+    );
+    $('#subsVideo').hover(      
+      function() {
+        $('.control').css('visibility', 'visible');
+        $('.control').stop().animate({'bottom':20}, 250);
       },
       function() {
         $('.control').css('visibility', 'hidden');

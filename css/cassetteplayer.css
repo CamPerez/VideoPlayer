@@ -20,7 +20,7 @@
 #subsVideo{
     position: absolute;
     z-index: 3;
-    top: 63%;
+    top: 57%;
     background-color: #1e1e1e;
     opacity:  0.9;
     color: white;
@@ -89,15 +89,15 @@
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     #divVideoPlayer{        
-        /*height: 60em;  */
+        height: 80em;  
     }
 }
 
 @media screen and (max-width: 700px) {
     #divVideoPlayer{        
-        /*height: 60em;  */
+        height: 40em;  
     }
 }
 
