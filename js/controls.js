@@ -103,7 +103,6 @@ function initVideoPlayer(nv){
 
   $(video).on("play", function(){
     draw(video,context,cw,ch,filter);
-    video.style.display="none";
   });
 }
 
@@ -307,13 +306,11 @@ function draw(v,c,w,h,filter) {
     if(v.paused || v.ended) return false;
     c.drawImage(v,0,0,w,h);
 
-      var idata = c.getImageData(0,0,w,h);
-      newdata = filterdata(idata,filter);
-      c.putImageData(newdata,0,0);
- 
-
+    var idata = c.getImageData(0,0,w,h);
+    newdata = filterdata(idata,filter);
+    c.putImageData(newdata,0,0);
+    
     setTimeout(draw,20,v,c,w,h,filter);
-
   }
 
 

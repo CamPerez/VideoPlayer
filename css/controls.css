@@ -97,133 +97,46 @@ ul.vc-controls li.vc-control-active.vc-control-pressed{
 
 
 /*VOLUMN*/
-/*
-#slider{
-    width: 200px;
-    height: 10px;
-}
 
 input[type="range"]{
   -webkit-appearance:none;
-  width:200px;
-  height:2px;
-  background: aqua;
+  width:160px;
+  height:20px;
+  background: linear-gradient(to right, #666565 0%, #666565 100%);
+  background-size:150px 10px;
   background-position:center;
   background-repeat:no-repeat;
-  position: absolute;
-  top: 0px;
-  bottoM: 0px;
-  left: 0px;
-  right: 0px;
-  margin: auto;
+  overflow:hidden;
+  outline: none;
+}
+
+input[type="range"]:first-of-type{
+  margin-top:5px;
 }
 
 input[type="range"]::-webkit-slider-thumb{
   -webkit-appearance:none;
   width:20px;
   height:20px;
-  border-radius: 100%;
-  background: #434343;
+  background:#8B392E;
   position:relative;
-  border: 10px solid rgba(0,0,0,.3);
   z-index:3;
-  cursor: pointer;
-}*/
-
-/* Import */
-
-
-input {
-  -webkit-appearance: none; 
-  width: 160px; 
-  height: 20px; 
-  margin: 10px 50px; 
-  background: linear-gradient(to right, #16a085 0%, #16a085 100%); 
-  background-size: 150px 10px; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  overflow: hidden; 
-  outline: none; 
-  zoom: 130%; 
-  display: block; 
-  margin: auto; 
-  margin-bottom: 30px; 
+  box-shadow:0 0 5px 0 rgba(0,0,0,0.3);
 }
 
-input::-webkit-slider-thumb {
-  -webkit-appearance: none; 
-  width: 20px; 
-  height: 20px; 
-  background: #27ae60; 
-  position: relative; 
-  z-index: 3; 
+input[type="range"]::-webkit-slider-thumb:after{
+  content:" ";
+  width:160px;
+  height:10px;
+  position:absolute;
+  z-index:1;
+  right:20px;
+  top:5px;
+  background: #F2A04D;
+  background: linear-gradient(to right, #F2A04D 1%, #E04006 70%);
 }
 
-input::-webkit-slider-thumb:after {
-  content: " "; 
-  width: 160px; 
-  height: 10px; 
-  position: absolute; 
-  z-index: 1; 
-  right: 20px; 
-  top: 5px; 
-  background: #D55E40; 
-}
 
-.orange::-webkit-slider-thumb {
-  background: #d35400; 
-}
-
-.orange::-webkit-slider-thumb:after {
-  background: #e67e22; 
-}
-
-.one {
-  width: 0px; 
-  height: 0px; 
-  background-color: transparent; 
-  line-height: 30px; 
-  color: #ecf0f1; 
-  cursor: pointer; 
-  border: 70px solid transparent; 
-  border-left: 70px solid #16a085; 
-  border-top: 70px solid #16a085; 
-  left: 0px; 
-  top: 0px; 
-  position: absolute; 
-}
-
-a {
-  text-decoration: none; 
-}
-
-.one span {
-  margin-left: -60px; 
-  position: absolute; 
-  margin-top: -40px; 
-}
-
-.two {
-  width: 0px; 
-  height: 0px; 
-  background-color: transparent; 
-  line-height: 30px; 
-  color: #ecf0f1; 
-  cursor: pointer; 
-  border: 70px solid transparent; 
-  border-right: 70px solid #D2F2EB; 
-  border-top: 70px solid #D2F2EB; 
-  right: 0px; 
-  top: 0px; 
-  position: absolute; 
-}
-
-.two span {
-  margin-left: -15px; 
-  position: absolute; 
-  margin-top: -40px; 
-  white-space: nowrap; 
-}
 
 /*PROGRESS BAR*/
 
