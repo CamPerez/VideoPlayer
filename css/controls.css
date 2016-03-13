@@ -245,6 +245,7 @@ a {
 }
 /* Progress bar */
 .progress {
+    z-index: 5;
     width:85%;
     height:16px;
     position:relative;
