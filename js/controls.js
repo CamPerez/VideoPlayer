@@ -100,6 +100,8 @@ function initVideoPlayer(nv){
   ch = canvas.clientHeight;
   canvas.width = cw;
   canvas.height = ch;
+  console.log(cw);
+  console.log(ch);
 
   $(video).on("play", function(){
     draw(video,context,cw,ch,filter);
@@ -194,7 +196,9 @@ function cleanCassettePlayer(){
   $( "#divScreenshot" ).empty();
   $( "#divInfoRight" ).empty();
   subsVideo.style.visibility="hidden";
-  locationList.style.visibility="hidden";
+  if(typeof locationList != 'undefined'){
+    locationList.style.visibility="hidden";
+  }
 }
 
 

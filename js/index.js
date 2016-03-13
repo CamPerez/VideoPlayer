@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 			jQuery('#videoheader').vide({
 				mp4: "video/background.mp4",
 				webm: "",
-				poster: "images/concertbackground.jpg"
+				poster: "images/concertbackground.jpeg"
 			}, {
 					muted: true,
 					loop: true,
