@@ -1,7 +1,8 @@
 jQuery(document).ready(function($) {
 			jQuery('#videoheader').vide({
 				mp4: "video/background.mp4",
-				webm: "",
+				webm: "video/background.webm",
+				ogg: "video/background.ogg",
 				poster: "images/concertbackground.jpeg"
 			}, {
 					muted: true,
