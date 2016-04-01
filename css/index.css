@@ -32,12 +32,28 @@ h2 {
   margin-top: 1em;
 }
 
-#videoheader{
-	height: 35vh;
-	position: relative;
-    top: 0;
-    width: 100%;
+
+
+#videodiv{
+    height:150px;
+    max-height:100vh;
+    overflow: hidden;
+    position: relative;
+    text-align:center;
+    /*width:100vw;*/
 }
+
+#videoheader {
+    position:absolute;
+    top: -99999px;
+    bottom: -99999px;
+    left: -99999px;
+    right: -99999px;
+    margin: auto;
+    min-height:100%;
+    min-width:100%;
+}
+
 
 #header{	
 	height: 60px;

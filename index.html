@@ -25,8 +25,9 @@
     <script src="js/cassetteplayer.js"></script>
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="js/jquery-ui-1.8.21.custom.min.js"></script>
-    <script src="http://gerardcuadras.com/wp-content/themes/GC2016/js/lib/jquery.vide.js"></script>
+    <script src="js/jquery.vide.min.js"></script>
     <script src="js/textTrack.js"></script>
+
 
   </head>
   <body>
@@ -34,7 +35,14 @@
     <!--SECCIONES DE LA WEB-->
     
     <!--Video de cabecera-->
-    <div id="videoheader"></div>        
+
+    <div id="videodiv">
+      <video autoplay loop muted id="videoheader" class="img-responsive">
+        <source src="video/background.webm" type="video/webm">
+        <source src="video/background.mp4" type="video/mp4">
+        <source src="video/background.ogg" type="video/ogg">
+      </video>
+    </div>
 
     <!--Título página web -->
     <section class="tittle">   
