@@ -1,194 +1,102 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <title>Cassette VideoPlayer</title>
+
+<head>
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <!--Librerías de estilo CSS-->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
-  <link rel="stylesheet" type="text/css" href="css/index.css" media="screen"/>
-  <link rel="stylesheet" type="text/css" href="css/controls.css">
-  <link rel="stylesheet" type="text/css" href="css/tittle.css" media="screen"/>
-  <link rel="stylesheet" type="text/css" href="css/cassetteplayer.css" media="screen"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="fonts/font-awesome-4.5.0/css/font-awesome.min.css">
+    <title>Pr&aacutecticas GDIE</title>
 
-    <!--Javascripts JS-->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="js/controls.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/cassetteplayer.js"></script>
-    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script src="js/jquery-ui-1.8.21.custom.min.js"></script>
-    <script src="js/jquery.vide.min.js"></script>
-    <script src="js/textTrack.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
-  </head>
-  <body>
-    <!--BLACK SCREEN-->
-    <!--SECCIONES DE LA WEB-->
-    
-    <!--Video de cabecera-->
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
 
-    <div id="videodiv">
-      <video autoplay loop muted id="videoheader" class="img-responsive">
-        <source src="video/background.webm" type="video/webm">
-        <source src="video/background.mp4" type="video/mp4">
-        <source src="video/background.ogg" type="video/ogg">
-      </video>
-    </div>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
 
-    <!--Título página web -->
-    <section class="tittle">   
-      <div class="panel-body">
-        <h1 class="sectiontitle link link--kukuri">Cassette Player</i></h1>
-      </div>
-    </section>
-      <!--Librería cassettes-->
-      <section class="fullwidth lib_cassettes">
-        <h2 class="sectiontitle">VIDEO<i class="thin">CONCERTS</i></h2>
-        <br><br>
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Pr&aacutecticas GDIE</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="practica1.html">Pr&aacutectica 1</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="practica2.html">Pr&aacutectica 2</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Pr&aacutectica 3</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Pr&aacutecticas GDIE</h1>
+                <br>
+                <!--<p></p> -->                
+                <a href="practica1.html" class="btn btn-primary btn-xl page-scroll">Empezar</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="about">
         <div class="container">
-          <div class="row">
-            <div class="library col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
-              <img src="images/gifcassette1.gif" onclick="initVideoPlayer('queen')" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_queen" onclick="initVideoPlayer('queen')">
-                <a href="#"><span>Queen + Adam Lambert</span><span>iHeartRadio Music Festival 2013</span></a>
-              </nav>   
-            </div>  
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
-              <img src="images/gifcassette2.gif" onclick="initVideoPlayer('muse')" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_muse" onclick="initVideoPlayer('muse')">
-                <a href="#"><span>Muse</span><span>Rome Olympic Stadium 2013</span></a>
-              </nav>
-            </div> 
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
-              <img src="images/gifcassette3.gif" onclick="initVideoPlayer('coldplay')" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_coldplay" onclick="initVideoPlayer('coldplay')">
-                <a href="#"><span>Coldplay</span><span>Rock in Rio 2011</span></a>
-              </nav>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Realizadas por</h2>
+                    <hr class="light">
+                    <p class="text-faded">Camila Pérez y Carlos Tenorio</p> 
+                </div>
             </div>
-          </div>   
-          <br>    
-          <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
-              <img src="images/gifcassette4.gif" onclick="initVideoPlayer('katyperry')" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_katy" onclick="initVideoPlayer('katyperry')">
-                <a href="#"><span>Katy Perry</span><span>The Prismatic World Tour 2015</span></a>
-              </nav>
-            </div>   
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
-              <img src="images/gifcassette5.gif" onclick="initVideoPlayer('shakira')" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_shakira" onclick="initVideoPlayer('shakira')">
-                <a href="#"><span>Shakira</span><span>FIFA World Cup 2010</span></a>
-              </nav>
-            </div>   
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" onclick="blackFunction()">
-              <img src="images/gifcassette6.gif" onclick="initVideoPlayer('therollingstones')" class="img-responsive" alt="Cassete">
-              <nav class="cl-effect-9 tittle_cassettes" id="t_rolling" onclick="initVideoPlayer('therollingstones')">
-                <a href="#"><span>The Rolling Stones</span><span>Live at the max 1991</span></a>
-              </nav>
-            </div>  
-          </div>
-        </div>   
-    </section>              
-
-    <!--Explicación web-->
-    <section class="fullwidth whymusic">
-      <h2 class="sectiontitle">WHY<i class="thin">MUSIC</i></h2>
-      <br>
-      <p class="sectiontitle">"La m&uacutesica es una revelaci&oacuten mayor que toda la sabidur&iacutea y la filosof&iacutea" - Beethoven.</p>
-      <p class="sectiontitle">"Normalmente, cuando una persona tiene un problema serio en la vida, se refleja en su m&uacutesica" - Kurt Cobain.</p>
-      <p class="sectiontitle">"El m&aacutes antiguo, el m&aacutes verdadero y el m&aacutes bello &oacutergano de la m&uacutesica, el origen del cual nuestra m&uacutesica debe provenir, es la voz humana" - Richard Wagner.</p>
-    </section>    
-
-    <!-- Cassette --> 
-    <div class="row" id="divBlack"></div>
-    <div id="divGroup" class="container">
-      <div id="divCassette" class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-0">
-        <div class="container col-xs-12 col-sm-10 col-md-8 col-lg-12" id="divVideoPlayer">
-          <!-- Image coverVideo-->
-          <img id="coverVideo" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-12 col-md-offset-1 col-lg-offset-0" />
-          <!-- Image Play Button-->
-          <img id="play_button"  src="images/play_button.png" class="img img-responsive col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4"/>
-          <div id="subsVideo" class="col-xs-4 col-sm-4 col-md-4 col-lg-3 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4"></div>
-          <video  id="myVideo" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-12 col-md-offset-1 col-lg-offset-0">
-          <!--
-          <track id="chapters_skakira" kind="chapters" srclang="en"></track>
-          <track id="subs_skakira" src="textTrack/sub_shakira.vtt" kind="subtitles" srclang="en"  default></track>
-          -->
-          </video>
-        
-          <canvas id="c" class="img img-responsive col-xs-12 col-sm-12 col-md-10 col-lg-12 col-md-offset-1 col-lg-offset-0" ></canvas>
-
-          <div class="control container col-xs-12 col-sm-12 col-md-10 col-lg-12 col-md-offset-1 col-lg-offset-0">
-            <div class="topControl">
-              <div class="progress">
-                <span class="bufferBar"></span>
-                <span class="timeBar"></span>
-              </div>
-              <div class="time">
-                  <span class="current"></span> 
-                  <span class="spaceTime">/</span>  
-                  <span class="duration"></span> 
-              </div>
-            </div>
-          </div>
         </div>
-        <div id="myVideoControls" class="container col-xs-12 col-sm-12 col-md-12 col-lg-12 col-lg-offset-0">
-          <ul class="vc-controls list-group" >
-            <li class="list-group-item" id="play"><i class="fa fa-play"></i></li>
-            <li class="list-group-item" id="pause"><i class="fa fa-pause"></i></li>
-            <li class="list-group-item" id="stop"><i class="fa fa-stop"></i></li>
-            <li class="list-group-item" id="light">Light <i id="ilight" class="fa fa-star-o"></i></li>
-            <li class="list-group-item" id="screenshot"><i class="fa fa-camera"></i></li> 
-            <li class="list-group-item" id="vol">
-              <div id="slider">
-                <input type="range" min="0" max="100" value="50" id="volumen">
-              </div>
-            </li>
-            <li class="list-group-item" id="videospeed"><i class="fa fa-tachometer"></i></li>
-            <li class="list-group-item" id="magic"><i class="fa fa-magic"></i></li>
-            <li class="list-group-item" id="subs"><i class="fa fa-cc"></i></li>
-            <li class="list-group-item" id="fullscreen"><i class="fa fa-arrows-alt"></i></li>
-          </ul>      
-        </div>
-      </div>
+    </section>
 
-      <!-- /.cassette -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-      <div id="divInfoRight" class="container col-xs-12 col-sm-12 col-md-12 col-lg-4">
-        <h4 id="infoSrc" class="col-lg-offset-4"></h4>
-       <!-- <h4 id="infoTitle"></h4>-->
-        <h4 id="infoAlbum"></h4>
-        <h4 id="infoPublication"></h4>
-        <h4 id="infoRecord"></h4>
-        <h4 id="infoGenre"></h4>
-        <h4 id="infoLabel"></h4>
-        <h4 id="infoAuthors"></h4>
-        <h4 id="infoProducers"></h4>
-        <h4 id="infoWiki"></h4>
-      </div>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-      <div id="divScreenshot" class="container col-xs-12 col-sm-12 col-md-12 col-lg-8">
-      </div>
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
 
-      <div id="divChapters" class="container col-xs-12 col-sm-12 col-md-12 col-lg-4">
-        <ul class="vc-controls list-group" >
-          <li class="list-group-item" id="liChapters"><i class="fa fa-play">Ver Cap&iacutetulos</i></li>     
-        </ul> 
-        <br>
-        <br>
-        <ul id="chapters" class="list-group"></ul>
-      </div>
-
-    </div> 
+    <!-- Custom Theme JavaScript -->
+    <script src="js/creative.js"></script>
 
 </body>
 
