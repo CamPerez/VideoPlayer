@@ -1,0 +1,174 @@
+/********************************/
+/*POP UP*/
+/********************************/
+#c {
+    /*position: relative;*/
+    margin-top: 10px;
+    border-radius: 24px 24px 0px 0px;
+    -moz-border-radius: 24px 24px 0px 0px;
+    -webkit-border-radius: 24px 24px 0px 0px;
+    border: 0px solid #000000;
+}
+
+#play_button{
+    visibility: hidden;
+    position: absolute;
+    z-index: 3;
+    top: 25%;
+}
+
+#coverVideo{
+    position: absolute;
+    z-index: 3;
+    border-radius: 24px 24px 0px 0px;
+    -moz-border-radius: 24px 24px 0px 0px;
+    -webkit-border-radius: 24px 24px 0px 0px;
+    border: 0px solid #000000;
+    margin-top: 10px;
+    width: 700px;
+    height: 310px;
+}
+
+#subsVideo{
+    position: absolute;
+    z-index: 3;
+    top: 57%;
+    background-color: #1e1e1e;
+    opacity:  0.9;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+}
+
+#divChapters{    
+    visibility: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+#divBlack {
+    position: fixed;
+    top: 0px; 
+    height:100vh; 
+    width: 100vw; 
+    background-color: black;
+    opacity: 0.4; 
+    filter: alpha(opacity=40);
+    visibility: hidden;
+    z-index: 1;
+}
+
+#divCassette{
+    position: relative;
+    visibility: hidden;
+    z-index: 2;
+    background-color: transparent;
+}
+
+#divInfoRight{
+    position: relative;
+    visibility: hidden;
+    z-index: 2;
+    background-color: rgba(233, 233, 235, 0.9);
+    border-radius: 10px;
+
+}
+
+#divScreenshot{
+    position: relative;
+    visibility: hidden;
+    z-index: 2;
+    background-color: rgba(139, 57, 46, 0.9);
+    border-radius: 10px;
+}
+
+#divGroup{
+    margin-top: -100%;
+}
+
+#divVideoPlayer{
+    position: relative;
+    background-image:  url(../images/cs_back.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height: 45em;
+}
+
+@media screen and (max-width: 1200px) {
+    #divVideoPlayer{        
+        height: 30em;  
+    }
+    #coverVideo{      
+        height: 200px; 
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    #divVideoPlayer{        
+        height: 80em;  
+    } 
+    #coverVideo{       
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #divVideoPlayer{        
+        height: 40em;  
+    }
+    #coverVideo{     
+        height: 200px;  
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #divVideoPlayer{        
+        /*height: 60em;  */
+    }
+    #coverVideo{        
+        height: 200px;  
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #divVideoPlayer{        
+        height: 25em;  
+    }
+    #coverVideo{        
+        height: 80px;  
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #divVideoPlayer{        
+        height: 15em;  
+    }
+    #coverVideo{      
+        height: 80px;   
+    }
+}
+
+
+#myVideo{
+    display: none;
+    margin-top: 10px;
+    border-radius: 24px 24px 0px 0px;
+    -moz-border-radius: 24px 24px 0px 0px;
+    -webkit-border-radius: 24px 24px 0px 0px;
+    border: 0px solid #000000;
+}
+
+#subs_skakira{
+    z-index: 1000;
+}
+
+
+/********************************/
+/*INFO VIDEO*/
+/********************************/
+.imgCover-size{
+    height: 100px;
+    width: 100px;
+}

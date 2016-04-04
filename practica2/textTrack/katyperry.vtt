@@ -1,0 +1,46 @@
+WEBVTT FILE
+
+0
+00:00:00.000 --> 00:05:07.000
+{
+"title": "Roar",
+"album": "Prism",
+"publication": "10 de agosto de 2013",
+"record": "2013",
+"genre": "Power pop",
+"label": "Capitol",
+"authors": "Katy Perry, Max Martin, Bonnie Mckee, Henry Walter",
+"producers": "Dr. Luke, Max Martin, Cirkut",
+"src": "images/albums/roar.png",
+"wiki": "https://goo.gl/2jF29x"
+}
+
+1
+00:05:08.000 --> 00:09:22.000
+{
+"title": "Part of me",
+"album": "Teenage Dream: The complete confection",
+"publication": "3 de febrero de 2012",
+"record": "2011",
+"genre": "Dance-pop, power pop",
+"label": "Capitol",
+"authors": "Katy Perry, Max Martin, Bonnie Mckee",
+"producers": "Dr. Luke, Max Martin, Cirkut",
+"src": "images/albums/partofme.png",
+"wiki": "https://goo.gl/MkqFul"
+}
+
+2
+00:09:23.000 --> 00:12:50.000
+{
+"title": "Wide Awake",
+"album": "Teenage Dream: The complete confection",
+"publication": "22 de mayo de 2012",
+"record": "2011",
+"genre": "Dance-pop",
+"label": "Capitol",
+"authors": "Katy Perry, Max Martin, Bonnie Mckee",
+"producers": "Dr. Luke, Cirkut",
+"src": "images/albums/wideawake.jpg",
+"wiki": "https://goo.gl/DxjljM"
+}
