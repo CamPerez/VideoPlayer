@@ -1,7 +1,7 @@
 WEBVTT FILE
 
 0
-00:00:00.000 --> 00:01:20.000
+00:00:00.000 --> 00:00:20.000
 {
 "title": "Bohemian Rhapsody",
 "album": "A Nigth at the Opera",
@@ -16,7 +16,7 @@ WEBVTT FILE
 }
 
 1
-00:01:21.000 --> 00:03:12.000
+00:00:21.000 --> 00:00:30.000
 {
 "title": "Another One Bites the Dust",
 "album": "The Game",
@@ -31,7 +31,7 @@ WEBVTT FILE
 }
 
 2
-00:03:13.000 --> 00:06:20.000
+00:00:31.000 --> 00:00:41.000
 {
 "title": "Crazy Little Thing Called Love",
 "album": "The Game",
