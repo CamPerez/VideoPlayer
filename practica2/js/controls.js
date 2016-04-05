@@ -195,7 +195,7 @@ function crearSourcesVideo(){
   video.appendChild(src_ogg);*/
 
   var src_m3u8= document.createElement("source");
-  src_m3u8.src= "video/video.m3u8"; 
+  src_m3u8.src= "../video/video.m3u8"; 
   src_m3u8.type= "application/x-mpegURL";
   video.appendChild(src_m3u8);
   video.load();

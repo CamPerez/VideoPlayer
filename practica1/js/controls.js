@@ -171,13 +171,13 @@ function crearTextTrackMetadata(){
 
 function crearSourcesVideo(){
   var src_mp4= document.createElement("source");
-  src_mp4.src= "video/mp4/"+nomvideo+".mp4";
+  src_mp4.src= "../video/mp4/"+nomvideo+".mp4";
   src_mp4.type= "video/mp4";
   var src_ogg= document.createElement("source");
-  src_ogg.src= "video/ogg/"+nomvideo+".ogg";
+  src_ogg.src= "../video/ogg/"+nomvideo+".ogg";
   src_ogg.type= "video/ogg";
   var src_webm= document.createElement("source");
-  src_webm.src= "video/webm/"+nomvideo+".webm";
+  src_webm.src= "../video/webm/"+nomvideo+".webm";
   src_webm.type= "video/webm";
   video.appendChild(src_mp4);
   video.appendChild(src_webm);
