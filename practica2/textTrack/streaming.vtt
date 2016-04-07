@@ -3,44 +3,44 @@ WEBVTT FILE
 0
 00:00:00.000 --> 00:00:20.000
 {
-"title": "Bohemian Rhapsody",
-"album": "A Nigth at the Opera",
+"title": "Bohemian Salines",
+"album": "Mallorca Mix",
 "publication": "31 de septiembre de 1975",
 "record": "1975",
 "genre": "Progressive rock, symphonic rock, hard rock",
 "label": "EMI",
 "authors": "Freddie Mercury",
 "producers": "Roy Thomas Baker, Queen",
-"src": "images/albums/bohemianrhapsody.png",
-"wiki": "https://goo.gl/MO1or7"
+"src": "images/streaming/salines1.jpg",
+"wiki": "http://www.ajsessalines.net/"
 }
 
 1
-00:00:21.000 --> 00:00:30.000
+00:00:21.000 --> 00:00:36.000
 {
-"title": "Another One Bites the Dust",
-"album": "The Game",
+"title": "Another One Bites the Salines",
+"album": "Parque Natural Remake",
 "publication": "22 de agosto de 1980",
 "record": "1980",
 "genre": "Funk rock, disco",
 "label": "EMI/Elektra/Mute",
 "authors": "John Deacon",
 "producers": "Queen, Mack",
-"src": "images/albums/anotheronebites.jpg",
-"wiki": "https://goo.gl/XHcEeP"
+"src": "images/streaming/salines2.jpg",
+"wiki": "http://www.ajsessalines.net/"
 }
 
 2
-00:00:31.000 --> 00:00:41.000
+00:00:37.000 --> 00:00:41.000
 {
-"title": "Crazy Little Thing Called Love",
-"album": "The Game",
+"title": "Crazy Little Thing Called Ses Salines",
+"album": "Ajuntament Ses Salines Remix",
 "publication": "5 de octubre de 1979",
 "record": "1979",
 "genre": "Rockabilly",
 "label": "Epic",
 "authors": "Freddie Mercury",
 "producers": "Queen",
-"src": "images/albums/crazylittle.jpg",
-"wiki": "https://goo.gl/u5jkrE"
+"src": "images/streaming/salines3.jpg",
+"wiki": "http://www.ajsessalines.net/"
 }

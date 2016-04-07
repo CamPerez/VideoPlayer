@@ -115,7 +115,7 @@ function initVideoPlayer(nv){
 function crearTextTrackMetadata(){
   track_info = document.createElement("track");
   track_info.kind = "metadata";  
-  track_info.src = "textTrack/"+nomvideo+".vtt";
+  track_info.src = "textTrack/streaming.vtt";
      
   track_info.addEventListener("cuechange", function() { 
       this.mode = "showing"; 
@@ -151,12 +151,12 @@ function crearTextTrackMetadata(){
 
   track_chapters = document.createElement("track");
   track_chapters.kind = "chapters";  
-  track_chapters.src="textTrack/chapters_"+nomvideo+".vtt";
+  track_chapters.src="textTrack/chapters_streaming.vtt";
 
   track_subs = document.createElement("track");
   track_subs.kind = "subtitles";  
   track_subs.srclang= "en";
-  track_subs.src="textTrack/sub_"+nomvideo+".vtt";
+  track_subs.src="textTrack/sub_streaming.vtt";
 
   track_subs.addEventListener("cuechange", function(){
     this.mode = "showing"; 
@@ -202,7 +202,7 @@ function crearSourcesVideo(){
 }
 
 function crearSourcesCover(){
-  coverVideo.src= "images/loadCovers/"+nomvideo+".jpg";
+  coverVideo.src= "images/loadCovers/salines.jpg";
 }
 
 
